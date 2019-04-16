@@ -14,8 +14,17 @@
 
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="name">Name</string>
+
+    <string name="sign_in_notice">Already have an account?</string>
+    <string name="sign_up_notice">Don\'t have an account?</string>
 
     <string name="sign_in_title">Sign In</string>
     <string name="button_sign_in">Sign In</string>
-    <string name="button_register">Register</string>
+    <string name="button_sign_up">Sign Up</string>
+    <string name="sign_up_title">Sign Up</string>
+    <string name="repeat_password">Repeat Password</string>
+
+    <string name="error_empty_email">Please enter valid email</string>
+    <string name="error_empty_password">Password can\'t be empty</string>
 </resources>
