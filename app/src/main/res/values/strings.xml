@@ -31,4 +31,6 @@
     <string name="error_password_not_match">Passwords doesn\'t match</string>
 
     <string name="authentication_failed">Authentication failed</string>
+
+    <string name="nav_sign_out">Sign Out</string>
 </resources>

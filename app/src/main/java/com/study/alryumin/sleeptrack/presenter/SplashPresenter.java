@@ -14,7 +14,6 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     @Override
     public Class<?> getActivityClass() {
-//        FirebaseAuth.getInstance().signOut();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Class<?> cls = null;
 
