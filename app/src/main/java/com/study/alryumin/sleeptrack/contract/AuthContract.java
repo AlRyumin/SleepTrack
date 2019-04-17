@@ -16,6 +16,7 @@ public interface AuthContract {
     public interface signInView {
         public EditText getEmail();
         public EditText getPassword();
+        public Context getSignInContext();
     }
 
     public interface signUpPresenter {

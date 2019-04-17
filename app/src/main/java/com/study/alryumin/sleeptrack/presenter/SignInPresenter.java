@@ -1,10 +1,18 @@
 package com.study.alryumin.sleeptrack.presenter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.study.alryumin.sleeptrack.MainActivity;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.contract.AuthContract;
 
@@ -45,5 +53,23 @@ public class SignInPresenter implements AuthContract.signInPresenter {
     public void userLogin() {
         String email = view.getEmail().getText().toString();
         String password = view.getPassword().getText().toString();
+
+        final Context context = view.getSignInContext();
+        final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            context.startActivity(new Intent(context, MainActivity.class));
+                        }
+                        else{
+                            Toast.makeText(context.getApplicationContext(),"E-mail or password is wrong",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
+
+
 }

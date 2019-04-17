@@ -75,8 +75,6 @@ public class SignUpPresenter  implements AuthContract.signUpPresenter{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent intent = new Intent(context, MainActivity.class);
-//                            startActivity(new Intent(context, MainActivity.class));
                             context.startActivity(new Intent(context, MainActivity.class));
 //                            finish();
                         }

@@ -114,4 +114,9 @@ public class SignInFragment extends Fragment implements AuthContract.signInView,
     public EditText getPassword() {
         return this.password;
     }
+
+    @Override
+    public Context getSignInContext() {
+        return this.getContext();
+    }
 }

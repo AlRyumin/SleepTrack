@@ -94,7 +94,7 @@ public class SignUpFragment extends Fragment implements AuthContract.signUpView,
         return this.passwordRepeat;
     }
 
-
+    @Override
     public Context getSignUpContext() {
         return this.getContext();
     }
