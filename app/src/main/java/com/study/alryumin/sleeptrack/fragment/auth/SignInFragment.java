@@ -4,23 +4,20 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.study.alryumin.sleeptrack.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.R;
-
 import com.study.alryumin.sleeptrack.contract.AuthContract;
 import com.study.alryumin.sleeptrack.presenter.SignInPresenter;
 
 import java.util.ArrayList;
 
-public class SignInFragment extends Fragment implements View.OnClickListener {
+public class SignInFragment extends Fragment implements AuthContract.signInView, View.OnClickListener {
     private Button signInButton, signUpButton;
     private EditText email, password;
 
@@ -33,7 +30,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new SignInPresenter();
+        presenter = new SignInPresenter(this);
     }
 
     @Override
@@ -87,10 +84,8 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
     public void authUser() {
         Context context = this.getContext();
-        String emailText = email.getText().toString();
-        String passwordText = password.getText().toString();
 
-        ArrayList<String> errors = presenter.getErrors(emailText, passwordText, context);
+        ArrayList<String> errors = presenter.getErrors(context);
 
         if(errors.isEmpty()){
             presenter.userLogin();
@@ -108,5 +103,15 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
             passwordText = (String) savedInstanceState.getSerializable("passwordText");
             password.setText(passwordText);
         }
+    }
+
+    @Override
+    public EditText getEmail() {
+        return this.email;
+    }
+
+    @Override
+    public EditText getPassword() {
+        return this.password;
     }
 }

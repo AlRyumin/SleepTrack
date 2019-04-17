@@ -1,6 +1,7 @@
 package com.study.alryumin.sleeptrack.presenter;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,8 +14,8 @@ public class SplashPresenter implements SplashContract.Presenter {
 
     @Override
     public Class<?> getActivityClass() {
+//        FirebaseAuth.getInstance().signOut();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         Class<?> cls = null;
 
         if(user != null){
