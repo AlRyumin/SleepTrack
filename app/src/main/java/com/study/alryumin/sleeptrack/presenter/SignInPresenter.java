@@ -16,9 +16,10 @@ import com.study.alryumin.sleeptrack.MainActivity;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.contract.AuthContract;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class SignInPresenter implements AuthContract.signInPresenter {
+public class SignInPresenter extends AuthPresenter implements AuthContract.signInPresenter {
 
     private AuthContract.signInView view;
 
@@ -31,6 +32,12 @@ public class SignInPresenter implements AuthContract.signInPresenter {
         String password = view.getPassword().getText().toString();
 
         ArrayList<String> errors = new ArrayList();
+
+        if(isOnline() == false){
+            errors.add(context.getString(R.string.error_offline));
+            return errors;
+        }
+
         if (email.isEmpty()) {
             errors.add(context.getString(R.string.error_empty_email));
         }

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 import static android.support.v4.content.ContextCompat.startActivity;
 
-public class SignUpPresenter  implements AuthContract.signUpPresenter{
+public class SignUpPresenter extends AuthPresenter implements AuthContract.signUpPresenter{
 
     AuthContract.signUpView view;
 
@@ -34,6 +34,11 @@ public class SignUpPresenter  implements AuthContract.signUpPresenter{
         String email = view.getEmail().getText().toString();
         String password = view.getPassword().getText().toString();
         String passwordRepeat = view.getPasswordRepeat().getText().toString();
+
+        if(isOnline() == false){
+            errors.add(context.getString(R.string.error_offline));
+            return errors;
+        }
 
         if (email.isEmpty()) {
             errors.add(context.getString(R.string.error_empty_email));

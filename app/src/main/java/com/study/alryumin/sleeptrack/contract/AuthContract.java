@@ -7,6 +7,10 @@ import java.util.ArrayList;
 
 public interface AuthContract {
 
+    public interface authPresenter {
+        public boolean isOnline();
+    }
+
     public interface signInPresenter {
         public void userLogin();
         public ArrayList<String> getErrors(Context context);
