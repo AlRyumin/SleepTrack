@@ -62,11 +62,11 @@ public class ActivityTrack {
     public String toString() {
         try {
             if (getFinishAt() != null) {
-                return "id: " + getId() + " Name: " + getName() + " Started at: " + getStartAt().toString()
-                        + " Finish at: " + getFinishAt().toString();
+                return " Started at: " + getStartAt().toString() + "\n"
+                        + " Finished at: " + getFinishAt().toString();
             } else {
-                return "id: " + getId() + " Name: " + getName() + " Started at: " + getStartAt().toString()
-                        + " Finish at: null";
+                return " Started at: " + getStartAt().toString() + "\n"
+                        + " Finished at: null";
             }
         } catch (Exception e) {
             Log.d("ToStringException",e.getMessage());

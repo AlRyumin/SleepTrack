@@ -62,7 +62,7 @@ public class AuthorizationActivity extends AppCompatActivity {
     }
 
     public void replaceFragment(Fragment fragment, int containerId) {
-        saveactiveFragment(fragment);
+        saveActiveFragment(fragment);
 
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
@@ -71,7 +71,7 @@ public class AuthorizationActivity extends AppCompatActivity {
                 .commit();
     }
 
-    private void saveactiveFragment(Fragment fragment) {
+    private void saveActiveFragment(Fragment fragment) {
         if(fragment instanceof SignUpFragment){
             activeFragment = REGISTER_FRAGMENT;
         } else {

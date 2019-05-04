@@ -1,6 +1,7 @@
 package com.study.alryumin.sleeptrack.worker;
 
 import android.app.KeyguardManager;
+import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -16,6 +17,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
+import static android.support.v4.content.ContextCompat.getSystemService;
 
 public class ActivityTrackWorker extends Worker {
     static final String TAG = "ActivityTrackWorker";
@@ -57,12 +59,14 @@ public class ActivityTrackWorker extends Worker {
 
     private boolean isActive() {
         try {
-            KeyguardManager myKM = (KeyguardManager) getApplicationContext().getSystemService(getApplicationContext().KEYGUARD_SERVICE);
-            if (myKM.inKeyguardRestrictedInputMode()) {
-                return false;
-            }
+            PowerManager pm = (PowerManager)getApplicationContext().getSystemService(getApplicationContext().POWER_SERVICE);
+            return pm.isScreenOn();
 
-            return true;
+//            KeyguardManager myKM = (KeyguardManager) getApplicationContext().getSystemService(getApplicationContext().KEYGUARD_SERVICE);
+//            if (myKM.inKeyguardRestrictedInputMode()) {
+//                return false;
+//            }
+//            return true;
         } catch (Exception e) {
             Log.d("TrackException", e.getMessage());
             return false;
@@ -75,6 +79,8 @@ public class ActivityTrackWorker extends Worker {
         DatabaseHelper database = App.getInstance().getDatabase();
         ActivityTrackDao activityTrackDao = database.getActivityTrackDao();
         ActivityTrack activityTrack = activityTrackDao.getLast();
+
+        Log.d("isActive: ", Boolean.toString(isActive));
 
         if(!isActive && activityTrack == null){
             return;

@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,22 +21,22 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.study.alryumin.sleeptrack.fragment.auth.SignInFragment;
+import com.study.alryumin.sleeptrack.fragment.auth.SignUpFragment;
+import com.study.alryumin.sleeptrack.fragment.main.ActivityTrackFragment;
 import com.study.alryumin.sleeptrack.worker.ActivityTrackWorker;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final int ACTIVITY_TRACK_FRAGMENT = 1;
+    private int activeFragment;
+
     @Override
     protected void onStart() {
         super.onStart();
 
-        WorkManager.getInstance().cancelAllWorkByTag("activityTrackWorker");
-
-        OneTimeWorkRequest activityTrackWorkerRequest =
-                new OneTimeWorkRequest.Builder(ActivityTrackWorker.class)
-                        .addTag("activityTrackWorker")
-                        .build();
-        WorkManager.getInstance().enqueue(activityTrackWorkerRequest);
+        startActivityTrackWorker();
     }
 
     @Override
@@ -60,8 +63,23 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if (savedInstanceState != null) {
+            setBundledFields(savedInstanceState);
+        }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setContent();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+        state.putSerializable("activeFragment", activeFragment);
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -100,22 +118,66 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_activity) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
         } else if (id == R.id.nav_sign_out) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getApplicationContext(), AuthorizationActivity.class));
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void setContent() {
+        int content = R.id.main_content;
+
+        Fragment fragment = new ActivityTrackFragment();
+
+        switch (activeFragment) {
+            case ACTIVITY_TRACK_FRAGMENT:
+                fragment = new ActivityTrackFragment();
+                break;
+        }
+
+        replaceFragment(fragment, content);
+    }
+
+    public void setContent(Fragment fragment) {
+        int content = R.id.main_content;
+        replaceFragment(fragment, content);
+    }
+
+    public void replaceFragment(Fragment fragment, int containerId) {
+        saveActiveFragment(fragment);
+
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction()
+                .replace(containerId, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void saveActiveFragment(Fragment fragment) {
+        if(fragment instanceof ActivityTrackFragment){
+            activeFragment = ACTIVITY_TRACK_FRAGMENT;
+        }
+    }
+
+    protected void setBundledFields(Bundle savedInstanceState) {
+        if (savedInstanceState.getSerializable("activeFragment") != null) {
+            activeFragment = (int) savedInstanceState.getSerializable("activeFragment");
+        }
+    }
+
+    protected void startActivityTrackWorker(){
+        if(null == WorkManager.getInstance().getStatusesByTag("activityTrackWorker").getValue()) {
+            OneTimeWorkRequest activityTrackWorkerRequest =
+                    new OneTimeWorkRequest.Builder(ActivityTrackWorker.class)
+                            .addTag("activityTrackWorker")
+                            .build();
+            WorkManager.getInstance().enqueue(activityTrackWorkerRequest);
+        }
     }
 }
