@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.ui.adapter;
+package com.study.alryumin.sleeptrack.view.main.view.adapater;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.fragment.main.ActivityTrackFragment.OnListFragmentInteractionListener;
+import com.study.alryumin.sleeptrack.view.main.view.ActivityTrackFragment.OnListFragmentInteractionListener;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public class ActivityTrackRecyclerViewAdapter extends RecyclerView.Adapter<Activ
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_activitytrack, parent, false);
+                .inflate(R.layout.activitytrack_viewholder, parent, false);
         return new ViewHolder(view);
     }
 

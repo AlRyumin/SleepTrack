@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack;
+package com.study.alryumin.sleeptrack.view;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;

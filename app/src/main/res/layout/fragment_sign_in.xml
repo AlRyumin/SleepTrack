@@ -5,7 +5,7 @@
     android:id="@+id/fragmentsignIn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.auth.SignInFragment">
+    tools:context=".view.authorization.view.SignInFragment">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/content"

@@ -12,7 +12,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,15 +20,14 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.study.alryumin.sleeptrack.fragment.auth.SignInFragment;
-import com.study.alryumin.sleeptrack.fragment.auth.SignUpFragment;
-import com.study.alryumin.sleeptrack.fragment.main.ActivityTrackFragment;
+import com.study.alryumin.sleeptrack.view.main.view.ActivityTrackFragment;
 import com.study.alryumin.sleeptrack.worker.ActivityTrackWorker;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int ACTIVITY_TRACK_FRAGMENT = 1;
+    private static final String ACTIVITY_TRACK_WORKER_TAG = "activityTrackWorker";
     private int activeFragment;
 
     @Override
@@ -172,10 +170,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     protected void startActivityTrackWorker(){
-        if(null == WorkManager.getInstance().getStatusesByTag("activityTrackWorker").getValue()) {
+        if(null == WorkManager.getInstance().getStatusesByTag(ACTIVITY_TRACK_WORKER_TAG).getValue()) {
             OneTimeWorkRequest activityTrackWorkerRequest =
                     new OneTimeWorkRequest.Builder(ActivityTrackWorker.class)
-                            .addTag("activityTrackWorker")
+                            .addTag(ACTIVITY_TRACK_WORKER_TAG)
                             .build();
             WorkManager.getInstance().enqueue(activityTrackWorkerRequest);
         }

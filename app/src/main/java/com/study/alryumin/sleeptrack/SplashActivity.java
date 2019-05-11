@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.study.alryumin.sleeptrack.presenter.SplashPresenter;
+import com.study.alryumin.sleeptrack.view.splash.presenter.SplashPresenter;
 
 public class SplashActivity extends AppCompatActivity {
 

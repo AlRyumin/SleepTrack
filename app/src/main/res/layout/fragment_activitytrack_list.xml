@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".fragment.main.ActivityTrackFragment"
-    tools:listitem="@layout/fragment_activitytrack" />
+    tools:context=".view.main.view.ActivityTrackFragment"
+    tools:listitem="@layout/activitytrack_viewholder" />

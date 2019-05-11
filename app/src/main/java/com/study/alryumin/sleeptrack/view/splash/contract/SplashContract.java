@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.contract;
+package com.study.alryumin.sleeptrack.view.splash.contract;
 
 public interface SplashContract {
     interface View{

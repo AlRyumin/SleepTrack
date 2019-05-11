@@ -1,6 +1,5 @@
 package com.study.alryumin.sleeptrack.worker;
 
-import android.app.KeyguardManager;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -8,16 +7,13 @@ import android.util.Log;
 
 import androidx.work.Worker;
 
-import com.study.alryumin.sleeptrack.App;
+import com.study.alryumin.sleeptrack.view.App;
 import com.study.alryumin.sleeptrack.helper.DatabaseHelper;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 import com.study.alryumin.sleeptrack.repository.room.ActivityTrackDao;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
-import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
-import static android.support.v4.content.ContextCompat.getSystemService;
 
 public class ActivityTrackWorker extends Worker {
     static final String TAG = "ActivityTrackWorker";

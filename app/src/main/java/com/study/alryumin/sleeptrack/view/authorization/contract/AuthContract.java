@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.contract;
+package com.study.alryumin.sleeptrack.view.authorization.contract;
 
 import android.content.Context;
 import android.widget.EditText;

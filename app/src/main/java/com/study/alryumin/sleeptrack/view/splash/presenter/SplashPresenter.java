@@ -1,14 +1,10 @@
-package com.study.alryumin.sleeptrack.presenter;
+package com.study.alryumin.sleeptrack.view.splash.presenter;
 
-import android.content.Context;
-import android.util.Log;
-
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.study.alryumin.sleeptrack.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.MainActivity;
-import com.study.alryumin.sleeptrack.contract.SplashContract;
+import com.study.alryumin.sleeptrack.view.splash.contract.SplashContract;
 
 public class SplashPresenter implements SplashContract.Presenter {
 

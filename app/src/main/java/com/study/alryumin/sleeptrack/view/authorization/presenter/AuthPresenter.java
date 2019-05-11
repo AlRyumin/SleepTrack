@@ -1,6 +1,6 @@
-package com.study.alryumin.sleeptrack.presenter;
+package com.study.alryumin.sleeptrack.view.authorization.presenter;
 
-import com.study.alryumin.sleeptrack.contract.AuthContract;
+import com.study.alryumin.sleeptrack.view.authorization.contract.AuthContract;
 
 import java.io.IOException;
 

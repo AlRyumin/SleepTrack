@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.fragment.auth;
+package com.study.alryumin.sleeptrack.view.authorization.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.EditText;
 
 import com.study.alryumin.sleeptrack.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.contract.AuthContract;
-import com.study.alryumin.sleeptrack.presenter.SignInPresenter;
+import com.study.alryumin.sleeptrack.view.authorization.contract.AuthContract;
+import com.study.alryumin.sleeptrack.view.authorization.presenter.SignInPresenter;
 
 import java.util.ArrayList;
 

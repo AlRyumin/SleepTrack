@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.contract;
+package com.study.alryumin.sleeptrack.view.main.contract;
 
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 

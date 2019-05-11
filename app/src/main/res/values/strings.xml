@@ -30,6 +30,8 @@
     <string name="error_empty_password_repeat">Password repeat can\'t be empty</string>
     <string name="error_password_not_match">Passwords doesn\'t match</string>
     <string name="error_offline">You are offline.</string>
+    <string name="error_sign_in">E-mail or password is wrong</string>
+    <string name="error_sign_up">E-mail or password is wrong</string>
 
     <string name="authentication_failed">Authentication failed</string>
 
