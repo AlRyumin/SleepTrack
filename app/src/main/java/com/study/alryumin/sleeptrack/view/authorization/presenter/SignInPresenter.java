@@ -13,15 +13,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.study.alryumin.sleeptrack.MainActivity;
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.view.authorization.contract.AuthContract;
+import com.study.alryumin.sleeptrack.view.authorization.contract.SignInContract;
 
 import java.util.ArrayList;
 
-public class SignInPresenter extends AuthPresenter implements AuthContract.signInPresenter {
+public class SignInPresenter extends AuthPresenter implements SignInContract.Presenter {
 
-    private AuthContract.signInView view;
+    private SignInContract.View view;
 
-    public SignInPresenter(AuthContract.signInView view){
+    public SignInPresenter(SignInContract.View view){
         this.view = view;
     }
 

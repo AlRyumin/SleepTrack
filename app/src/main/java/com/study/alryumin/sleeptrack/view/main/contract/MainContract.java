@@ -13,9 +13,4 @@ public interface MainContract {
 
     }
 
-    interface ActivityTrackView{}
-
-    interface ActivityTrackPresenter{
-        public List<ActivityTrack> getItems();
-    }
 }

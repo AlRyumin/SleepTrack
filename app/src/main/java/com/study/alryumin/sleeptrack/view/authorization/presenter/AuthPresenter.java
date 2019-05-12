@@ -4,7 +4,7 @@ import com.study.alryumin.sleeptrack.view.authorization.contract.AuthContract;
 
 import java.io.IOException;
 
-public class AuthPresenter implements AuthContract.authPresenter {
+public class AuthPresenter implements AuthContract.Presenter {
     public boolean isOnline() {
         Runtime runtime = Runtime.getRuntime();
         try {

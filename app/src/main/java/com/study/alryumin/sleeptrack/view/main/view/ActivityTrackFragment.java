@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.view.main.contract.MainContract;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
+import com.study.alryumin.sleeptrack.view.main.contract.ActivityTrackContract;
 import com.study.alryumin.sleeptrack.view.main.presenter.ActivityTrackPresenter;
 import com.study.alryumin.sleeptrack.view.main.view.adapater.ActivityTrackRecyclerViewAdapter;
 
@@ -24,14 +24,14 @@ import com.study.alryumin.sleeptrack.view.main.view.adapater.ActivityTrackRecycl
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ActivityTrackFragment extends Fragment implements MainContract.ActivityTrackView {
+public class ActivityTrackFragment extends Fragment implements ActivityTrackContract.View {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    private MainContract.ActivityTrackPresenter activityTrackPresenter;
+    private ActivityTrackContract.Presenter activityTrackPresenter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the

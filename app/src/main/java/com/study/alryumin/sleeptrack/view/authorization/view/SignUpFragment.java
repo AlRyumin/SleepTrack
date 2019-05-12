@@ -14,15 +14,15 @@ import androidx.fragment.app.Fragment;
 
 import com.study.alryumin.sleeptrack.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.view.authorization.contract.AuthContract;
+import com.study.alryumin.sleeptrack.view.authorization.contract.SignUpContract;
 import com.study.alryumin.sleeptrack.view.authorization.presenter.SignUpPresenter;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 
-public class SignUpFragment extends Fragment implements AuthContract.signUpView, View.OnClickListener{
-    private AuthContract.signUpPresenter presenter;
+public class SignUpFragment extends Fragment implements SignUpContract.View, View.OnClickListener{
+    private SignUpContract.Presenter presenter;
 
     @BindView(R.id.email) EditText email;
     @BindView(R.id.password) EditText password;
