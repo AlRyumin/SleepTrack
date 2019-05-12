@@ -1,7 +1,8 @@
 package com.study.alryumin.sleeptrack.view;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
+
+import androidx.room.Room;
 
 import com.study.alryumin.sleeptrack.helper.DatabaseHelper;
 

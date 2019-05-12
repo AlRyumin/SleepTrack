@@ -3,12 +3,14 @@ package com.study.alryumin.sleeptrack.view.authorization.view;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.study.alryumin.sleeptrack.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.R;
@@ -17,11 +19,16 @@ import com.study.alryumin.sleeptrack.view.authorization.presenter.SignUpPresente
 
 import java.util.ArrayList;
 
-public class SignUpFragment extends Fragment implements AuthContract.signUpView, View.OnClickListener{
+import butterknife.BindView;
 
-    private EditText email, password, passwordRepeat;
-    private Button signUpButton, signInButton;
+public class SignUpFragment extends Fragment implements AuthContract.signUpView, View.OnClickListener{
     private AuthContract.signUpPresenter presenter;
+
+    @BindView(R.id.email) EditText email;
+    @BindView(R.id.password) EditText password;
+    @BindView(R.id.passwordRepeat) EditText passwordRepeat;
+    @BindView(R.id.signUpButton) Button signUpButton;
+    @BindView(R.id.signInButton) Button signInButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,7 +37,7 @@ public class SignUpFragment extends Fragment implements AuthContract.signUpView,
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
 
@@ -40,22 +47,18 @@ public class SignUpFragment extends Fragment implements AuthContract.signUpView,
         return rootView;
     }
 
-    protected void initView(View view) {
-        signInButton = view.findViewById(R.id.signInButton);
-        signUpButton = view.findViewById(R.id.signUpButton);
-        email = view.findViewById(R.id.email);
-        password = view.findViewById(R.id.password);
-        passwordRepeat = view.findViewById(R.id.passwordRepeat);
+    private void initView(View view) {
+
     }
 
-    protected void initListener() {
+    private void initListener() {
         signInButton.setOnClickListener(this);
         signUpButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        AuthorizationActivity activity = null;
+        AuthorizationActivity activity;
         switch (view.getId()) {
             case R.id.signUpButton:
                 registerUser();
@@ -67,7 +70,7 @@ public class SignUpFragment extends Fragment implements AuthContract.signUpView,
         }
     }
 
-    public void registerUser() {
+    private void registerUser() {
         Context context = this.getContext();
 
         ArrayList<String> errors = presenter.getErrors(context);

@@ -2,9 +2,10 @@ package com.study.alryumin.sleeptrack.view.authorization.presenter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,9 +29,9 @@ public class SignInPresenter extends AuthPresenter implements AuthContract.signI
         String email = view.getEmail().getText().toString();
         String password = view.getPassword().getText().toString();
 
-        ArrayList<String> errors = new ArrayList();
+        ArrayList<String> errors = new ArrayList<>();
 
-        if(isOnline() == false){
+        if(!isOnline()){
             errors.add(context.getString(R.string.error_offline));
             return errors;
         }

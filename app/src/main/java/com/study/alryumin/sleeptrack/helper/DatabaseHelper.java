@@ -1,8 +1,8 @@
 package com.study.alryumin.sleeptrack.helper;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
-import android.arch.persistence.room.TypeConverters;
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 import com.study.alryumin.sleeptrack.repository.db.DateConverter;

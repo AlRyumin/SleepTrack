@@ -1,9 +1,10 @@
 package com.study.alryumin.sleeptrack.model;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
@@ -12,11 +13,10 @@ public class ActivityTrack {
     @PrimaryKey(autoGenerate = true)
     public long id;
     public int processId;
-    String name;
-    Date startAt, finishAt;
+    private String name;
+    private Date startAt, finishAt;
 
     public ActivityTrack(String name, Date startAt) {
-        this.processId = processId;
         this.name = name;
         this.startAt = startAt;
     }

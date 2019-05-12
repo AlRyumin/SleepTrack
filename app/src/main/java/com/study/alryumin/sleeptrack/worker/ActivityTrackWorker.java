@@ -2,9 +2,9 @@ package com.study.alryumin.sleeptrack.worker;
 
 import android.os.PowerManager;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.work.Worker;
 
 import com.study.alryumin.sleeptrack.view.App;
@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class ActivityTrackWorker extends Worker {
-    static final String TAG = "ActivityTrackWorker";
+    private static final String TAG = "ActivityTrackWorker";
 
     @NonNull
     @Override
@@ -43,7 +43,7 @@ public class ActivityTrackWorker extends Worker {
         }
     }
 
-    private void sleep() throws Settings.SettingNotFoundException, InterruptedException {
+    private void sleep() throws InterruptedException {
 //        float time = Settings.System.getFloat(getApplicationContext().getContentResolver(), SCREEN_OFF_TIMEOUT);
 //        long lTime = (long) time;
         long lTime = 10000;

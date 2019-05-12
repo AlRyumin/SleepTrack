@@ -2,9 +2,10 @@ package com.study.alryumin.sleeptrack.view.authorization.presenter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 public class SignUpPresenter extends AuthPresenter implements AuthContract.signUpPresenter{
 
-    AuthContract.signUpView view;
+    private AuthContract.signUpView view;
 
     public SignUpPresenter(AuthContract.signUpView view){
         this.view = view;
@@ -26,13 +27,13 @@ public class SignUpPresenter extends AuthPresenter implements AuthContract.signU
 
     @Override
     public ArrayList<String> getErrors(Context context) {
-        ArrayList<String> errors = new ArrayList();
+        ArrayList<String> errors = new ArrayList<>();
 
         String email = view.getEmail().getText().toString();
         String password = view.getPassword().getText().toString();
         String passwordRepeat = view.getPasswordRepeat().getText().toString();
 
-        if(isOnline() == false){
+        if(!isOnline()){
             errors.add(context.getString(R.string.error_offline));
             return errors;
         }
