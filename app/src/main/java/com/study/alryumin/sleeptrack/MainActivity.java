@@ -2,29 +2,32 @@ package com.study.alryumin.sleeptrack;
 
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.study.alryumin.sleeptrack.utils.TrackActivity;
+import com.study.alryumin.sleeptrack.utils.TrackService;
 import com.study.alryumin.sleeptrack.view.main.view.ActivityTrackFragment;
 import com.study.alryumin.sleeptrack.worker.ActivityTrackWorker;
+
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,7 +40,13 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
-        startActivityTrackWorker();
+        try {
+            Log.d("StartService", "test");
+            TrackActivity.getInstance().track(getBaseContext());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -170,10 +179,12 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    protected void startActivityTrackWorker(){
+    protected void startActivityTrackWorker() throws Exception {
+        WorkManager.getInstance().cancelAllWorkByTag(ACTIVITY_TRACK_WORKER_TAG);
+
         if(null == WorkManager.getInstance().getStatusesByTag(ACTIVITY_TRACK_WORKER_TAG).getValue()) {
-            OneTimeWorkRequest activityTrackWorkerRequest =
-                    new OneTimeWorkRequest.Builder(ActivityTrackWorker.class)
+            PeriodicWorkRequest activityTrackWorkerRequest =
+                    new PeriodicWorkRequest.Builder(ActivityTrackWorker.class, 15, TimeUnit.MINUTES)
                             .addTag(ACTIVITY_TRACK_WORKER_TAG)
                             .build();
             WorkManager.getInstance().enqueue(activityTrackWorkerRequest);

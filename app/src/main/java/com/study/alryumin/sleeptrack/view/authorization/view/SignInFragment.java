@@ -2,11 +2,14 @@ package com.study.alryumin.sleeptrack.view.authorization.view;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,6 +22,8 @@ import com.study.alryumin.sleeptrack.view.authorization.presenter.SignInPresente
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SignInFragment extends Fragment implements SignInContract.View, View.OnClickListener {
     @BindView(R.id.email) EditText email;
@@ -51,6 +56,8 @@ public class SignInFragment extends Fragment implements SignInContract.View, Vie
             setBundledFields(savedInstanceState);
         }
 
+        ButterKnife.bind(this, rootView);
+
         return rootView;
     }
 
@@ -66,12 +73,13 @@ public class SignInFragment extends Fragment implements SignInContract.View, Vie
     }
 
     private void initListener() {
-        signInButton.setOnClickListener(this);
-        signUpButton.setOnClickListener(this);
+//        signInButton.setOnClickListener(this);
+//        signUpButton.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.signInButton, R.id.signUpButton})
     public void onClick(View view) {
+        Log.d("singInButton", view.toString());
         AuthorizationActivity activity;
         switch (view.getId()) {
             case R.id.signInButton:
@@ -83,6 +91,20 @@ public class SignInFragment extends Fragment implements SignInContract.View, Vie
                 break;
         }
     }
+
+//    @Override
+//    public void onClick(View view) {
+//        AuthorizationActivity activity;
+//        switch (view.getId()) {
+//            case R.id.signInButton:
+//                authUser();
+//                break;
+//            case R.id.signUpButton:
+//                activity = (AuthorizationActivity) getActivity();
+//                activity.setContent(new SignUpFragment());
+//                break;
+//        }
+//    }
 
     private void authUser() {
         Context context = this.getContext();
