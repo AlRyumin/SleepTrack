@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
 
         try {
-            Log.d("StartService", "test");
             TrackActivity.getInstance().track(getBaseContext());
         } catch (Exception e) {
             e.printStackTrace();
