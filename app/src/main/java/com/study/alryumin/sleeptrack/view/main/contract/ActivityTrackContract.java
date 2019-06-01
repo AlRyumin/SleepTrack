@@ -1,6 +1,7 @@
 package com.study.alryumin.sleeptrack.view.main.contract;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.List;
 
 public interface ActivityTrackContract {
@@ -8,5 +9,6 @@ public interface ActivityTrackContract {
 
     interface Presenter{
         List<com.study.alryumin.sleeptrack.model.ActivityTrack> getItems();
+        List<com.study.alryumin.sleeptrack.model.ActivityTrack> getItems(Calendar date);
     }
 }

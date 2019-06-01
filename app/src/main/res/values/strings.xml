@@ -38,4 +38,10 @@
     <string name="nav_sign_out">Sign Out</string>
     <string name="nav_activity_track">Activities</string>
     <string name="nav_sleep_time">Sleep Time</string>
+    <string-array name="catlist">
+        <item>Барсик</item>
+        <item>Мурзик</item>
+        <item>Васька</item>
+        <item>Рыжик</item>
+    </string-array>
 </resources>

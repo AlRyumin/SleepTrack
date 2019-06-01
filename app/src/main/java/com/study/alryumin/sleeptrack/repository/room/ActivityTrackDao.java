@@ -24,6 +24,9 @@ public interface ActivityTrackDao {
     @Query("SELECT * FROM activityTrack WHERE startAt >= :startAt AND finishAt <= :finishAt")
     List<ActivityTrack> getByDate(Long startAt, Long finishAt);
 
+    @Query("SELECT * FROM activityTrack WHERE startAt >= :startAt")
+    List<ActivityTrack> getByDate(Long startAt);
+
     @Insert
     void add(ActivityTrack activityTrack);
 

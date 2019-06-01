@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.study.alryumin.sleeptrack.utils.TrackActivity;
 import com.study.alryumin.sleeptrack.utils.TrackService;
 import com.study.alryumin.sleeptrack.view.main.view.ActivityTrackFragment;
+import com.study.alryumin.sleeptrack.view.main.view.SleepTimeView;
 import com.study.alryumin.sleeptrack.worker.ActivityTrackWorker;
 
 import java.util.concurrent.TimeUnit;
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final int ACTIVITY_TRACK_FRAGMENT = 1;
+    private static final int ACTIVITY_TRACK_FRAGMENT = 1, SLEEP_TIME_FRAGMENT = 2;
     private static final String ACTIVITY_TRACK_WORKER_TAG = "activityTrackWorker";
     private int activeFragment;
 
@@ -128,7 +129,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_activity) {
-            // Handle the camera action
+            setContent(new ActivityTrackFragment());
+        } if (id == R.id.nav_sleep_time) {
+            setContent(new SleepTimeView());
         } else if (id == R.id.nav_sign_out) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getApplicationContext(), AuthorizationActivity.class));
@@ -146,6 +149,8 @@ public class MainActivity extends AppCompatActivity
 
         if (activeFragment == ACTIVITY_TRACK_FRAGMENT) {
             fragment = new ActivityTrackFragment();
+        } else if (activeFragment == SLEEP_TIME_FRAGMENT){
+            fragment = new SleepTimeView();
         }
 
         replaceFragment(fragment, content);
@@ -169,6 +174,8 @@ public class MainActivity extends AppCompatActivity
     private void saveActiveFragment(Fragment fragment) {
         if(fragment instanceof ActivityTrackFragment){
             activeFragment = ACTIVITY_TRACK_FRAGMENT;
+        } else if(fragment instanceof SleepTimeView){
+            activeFragment = SLEEP_TIME_FRAGMENT;
         }
     }
 

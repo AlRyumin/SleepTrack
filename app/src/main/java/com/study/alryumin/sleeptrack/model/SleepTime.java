@@ -10,7 +10,7 @@ public class SleepTime {
     @PrimaryKey(autoGenerate = true)
     public long id;
     private Date startAt, finishAt;
-    private int sleepTime;
+    private long sleepTime;
 
     public long getId() {
         return id;
@@ -24,7 +24,7 @@ public class SleepTime {
         return finishAt;
     }
 
-    public int getSleepTime() {
+    public long getSleepTime() {
         return sleepTime;
     }
 
@@ -36,7 +36,11 @@ public class SleepTime {
         this.finishAt = finishAt;
     }
 
-    public void setSleepTime(int sleepTime) {
+    public void setSleepTime(long sleepTime) {
         this.sleepTime = sleepTime;
+    }
+
+    public String toString(){
+        return "Start: " + getStartAt() + " '\n Finish: " + getFinishAt() + " '\n Sleep: " + getSleepTime();
     }
 }

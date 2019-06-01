@@ -1,14 +1,17 @@
 package com.study.alryumin.sleeptrack.view.main.view;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +20,13 @@ import com.study.alryumin.sleeptrack.model.ActivityTrack;
 import com.study.alryumin.sleeptrack.view.main.contract.ActivityTrackContract;
 import com.study.alryumin.sleeptrack.view.main.presenter.ActivityTrackPresenter;
 import com.study.alryumin.sleeptrack.view.main.view.adapater.ActivityTrackRecyclerViewAdapter;
+
+import java.util.Calendar;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A fragment representing a list of Items.
@@ -32,13 +42,12 @@ public class ActivityTrackFragment extends Fragment implements ActivityTrackCont
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     private ActivityTrackContract.Presenter activityTrackPresenter;
+    private RecyclerView recyclerView;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
+    Calendar dateAndTime = Calendar.getInstance();
 
-
+    @BindView(R.id.dateButton)
+    Button dateButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,23 +63,29 @@ public class ActivityTrackFragment extends Fragment implements ActivityTrackCont
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_activitytrack_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_activitytrack_list, container, false);
+        View list = rootView.findViewById(R.id.list);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
+        if (list instanceof RecyclerView) {
+            Context context = list.getContext();
+            recyclerView = (RecyclerView) list;
 
+//            if (mColumnCount <= 1) {
+//                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+//            } else {
+//                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+//            }
 
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-            recyclerView.setAdapter(new ActivityTrackRecyclerViewAdapter(activityTrackPresenter.getItems(), mListener));
+            recyclerView.setAdapter(new ActivityTrackRecyclerViewAdapter(activityTrackPresenter.getItems(dateAndTime), mListener));
         }
-        return view;
+
+        ButterKnife.bind(this, rootView);
+
+        setInitialDateTime();
+
+        return rootView;
     }
 
 
@@ -104,5 +119,40 @@ public class ActivityTrackFragment extends Fragment implements ActivityTrackCont
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(ActivityTrack item);
+    }
+
+    public void setDate() {
+        new DatePickerDialog(this.getContext(), d,
+                dateAndTime.get(Calendar.YEAR),
+                dateAndTime.get(Calendar.MONTH),
+                dateAndTime.get(Calendar.DAY_OF_MONTH))
+                .show();
+    }
+
+    DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            dateAndTime.set(Calendar.YEAR, year);
+            dateAndTime.set(Calendar.MONTH, monthOfYear);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            setInitialDateTime();
+
+            recyclerView.setAdapter(new ActivityTrackRecyclerViewAdapter(activityTrackPresenter.getItems(dateAndTime), mListener));
+
+        }
+    };
+
+    private void setInitialDateTime() {
+        dateButton.setText(DateUtils.formatDateTime(this.getContext(),
+                dateAndTime.getTimeInMillis(),
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
+    }
+
+    @OnClick(R.id.dateButton)
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.dateButton:
+                setDate();
+                break;
+        }
     }
 }
