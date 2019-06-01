@@ -76,10 +76,6 @@ public class ActivityTrackPresenter implements ActivityTrackContract.Presenter {
         date.set(Calendar.MILLISECOND, 999);
         showTo = date.getTimeInMillis();
 
-
-        Log.d(TAG + " From", showFrom.toString());
-        Log.d(TAG + " To", showTo.toString());
-
         return activityTrackDao.getByDate(showFrom, showTo);
 
     }

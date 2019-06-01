@@ -32,4 +32,7 @@ public interface SleepTimeDao {
 
     @Delete
     void delete(SleepTime sleepTime);
+
+    @Query("DELETE FROM sleepTime WHERE 1")
+    void deleteAll();
 }

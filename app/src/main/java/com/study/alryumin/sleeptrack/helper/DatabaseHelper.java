@@ -10,7 +10,7 @@ import com.study.alryumin.sleeptrack.repository.db.DateConverter;
 import com.study.alryumin.sleeptrack.repository.room.ActivityTrackDao;
 import com.study.alryumin.sleeptrack.repository.room.SleepTimeDao;
 
-@Database(entities = { ActivityTrack.class, SleepTime.class }, version = 1, exportSchema = false)
+@Database(entities = { ActivityTrack.class, SleepTime.class }, version = 2, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class DatabaseHelper extends RoomDatabase {
 

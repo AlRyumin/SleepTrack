@@ -40,7 +40,12 @@ public class CountSleepTime {
 
     public void count(){
         SleepTime last = sleepTimeDao.getLast();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        if(null == last){
+            List<ActivityTrack> tracks = activityTrackDao.getAll();
+            insertData(tracks);
+            return;
+        }
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, -1);
@@ -58,10 +63,7 @@ public class CountSleepTime {
 
         Long yesterdayFinish = calendar.getTimeInMillis();
 
-        if(null == last){
-            List<ActivityTrack> tracks = activityTrackDao.getAll();
-            insertData(tracks);
-        } else if(!lastTime.equals(yesterday)){
+       if(!lastTime.equals(yesterday)){
             List<ActivityTrack> tracks = activityTrackDao.getByDate(lastTime, yesterdayFinish);
             insertData(tracks);
         }
@@ -73,7 +75,7 @@ public class CountSleepTime {
             return;
         }
 
-        Long timeDiff = 14400l;//4 hours
+        Long timeDiff = 14400l * 1000;//4 hours in milliseconds
 
         for(ActivityTrack track : tracks){
             Log.d("Track: ", track.toString());

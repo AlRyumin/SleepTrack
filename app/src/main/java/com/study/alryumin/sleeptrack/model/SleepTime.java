@@ -4,6 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 @Entity
 public class SleepTime {
@@ -40,7 +41,18 @@ public class SleepTime {
         this.sleepTime = sleepTime;
     }
 
+    public String getSleepTimeFormat(){
+        String sleepTime = String.format("%02d:%02d:%02d",
+                TimeUnit.MILLISECONDS.toHours(getSleepTime()),
+                TimeUnit.MILLISECONDS.toMinutes(getSleepTime()) -
+                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(getSleepTime())),
+                TimeUnit.MILLISECONDS.toSeconds(getSleepTime()) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(getSleepTime())));
+
+        return sleepTime;
+    }
+
     public String toString(){
-        return "Start: " + getStartAt() + " '\n Finish: " + getFinishAt() + " '\n Sleep: " + getSleepTime();
+        return "Start: " + getStartAt() + " '\n Finish: " + getFinishAt() + " '\n Sleep: " + getSleepTimeFormat();
     }
 }
