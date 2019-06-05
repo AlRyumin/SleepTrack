@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.study.alryumin.sleeptrack.view.authorization.view.SignInFragment;
-import com.study.alryumin.sleeptrack.view.authorization.view.SignUpFragment;
+import com.study.alryumin.sleeptrack.view.authorization.view.SignInView;
+import com.study.alryumin.sleeptrack.view.authorization.view.SignUpView;
 
 public class AuthorizationActivity extends AppCompatActivity {
 
@@ -23,6 +23,8 @@ public class AuthorizationActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             setBundledFields(savedInstanceState);
         }
+
+        getSupportActionBar().hide();
     }
 
     @Override
@@ -46,10 +48,10 @@ public class AuthorizationActivity extends AppCompatActivity {
     public void setContent() {
         int content = R.id.content;
 
-        Fragment fragment = new SignInFragment();
+        Fragment fragment = new SignInView();
 
         if (activeFragment == REGISTER_FRAGMENT) {
-            fragment = new SignUpFragment();
+            fragment = new SignUpView();
         }
 
         replaceFragment(fragment, content);
@@ -71,7 +73,7 @@ public class AuthorizationActivity extends AppCompatActivity {
     }
 
     private void saveActiveFragment(Fragment fragment) {
-        if(fragment instanceof SignUpFragment){
+        if(fragment instanceof SignUpView){
             activeFragment = REGISTER_FRAGMENT;
         } else {
             activeFragment = LOGIN_FRAGMENT;

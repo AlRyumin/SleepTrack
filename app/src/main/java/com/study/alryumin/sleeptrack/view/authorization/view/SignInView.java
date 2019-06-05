@@ -1,6 +1,7 @@
 package com.study.alryumin.sleeptrack.view.authorization.view;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -25,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SignInFragment extends Fragment implements SignInContract.View, View.OnClickListener {
+public class SignInView extends Fragment implements SignInContract.View, View.OnClickListener {
     @BindView(R.id.email) EditText email;
     @BindView(R.id.password) EditText password;
     @BindView(R.id.signInButton) Button signInButton;
@@ -49,16 +50,19 @@ public class SignInFragment extends Fragment implements SignInContract.View, Vie
 
         View rootView = inflater.inflate(R.layout.fragment_sign_in, container, false);
 
-        initView(rootView);
-        initListener();
-
         if (savedInstanceState != null) {
             setBundledFields(savedInstanceState);
         }
 
         ButterKnife.bind(this, rootView);
 
+        initView();
+
         return rootView;
+    }
+
+    public void initView(){
+        signUpButton.setPaintFlags(signUpButton.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
     }
 
     @Override
@@ -68,18 +72,8 @@ public class SignInFragment extends Fragment implements SignInContract.View, Vie
         outState.putSerializable("passwordText", password.getText().toString());
     }
 
-    private void initView(View view) {
-
-    }
-
-    private void initListener() {
-//        signInButton.setOnClickListener(this);
-//        signUpButton.setOnClickListener(this);
-    }
-
     @OnClick({R.id.signInButton, R.id.signUpButton})
     public void onClick(View view) {
-        Log.d("singInButton", view.toString());
         AuthorizationActivity activity;
         switch (view.getId()) {
             case R.id.signInButton:
@@ -87,24 +81,10 @@ public class SignInFragment extends Fragment implements SignInContract.View, Vie
                 break;
             case R.id.signUpButton:
                 activity = (AuthorizationActivity) getActivity();
-                activity.setContent(new SignUpFragment());
+                activity.setContent(new SignUpView());
                 break;
         }
     }
-
-//    @Override
-//    public void onClick(View view) {
-//        AuthorizationActivity activity;
-//        switch (view.getId()) {
-//            case R.id.signInButton:
-//                authUser();
-//                break;
-//            case R.id.signUpButton:
-//                activity = (AuthorizationActivity) getActivity();
-//                activity.setContent(new SignUpFragment());
-//                break;
-//        }
-//    }
 
     private void authUser() {
         Context context = this.getContext();
@@ -119,11 +99,11 @@ public class SignInFragment extends Fragment implements SignInContract.View, Vie
     }
 
     private void setBundledFields(Bundle savedInstanceState) {
-        if (savedInstanceState.getSerializable("emailText") != null) {
+        if (savedInstanceState.getSerializable("emailText") != null && email != null) {
             emailText = (String) savedInstanceState.getSerializable("emailText");
             email.setText(emailText);
         }
-        if (savedInstanceState.getSerializable("passwordText") != null) {
+        if (savedInstanceState.getSerializable("passwordText") != null && password != null) {
             passwordText = (String) savedInstanceState.getSerializable("passwordText");
             password.setText(passwordText);
         }

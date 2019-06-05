@@ -27,8 +27,8 @@ public class SleepTimeView extends Fragment {
 
     private OnListFragmentInteractionListener mListener;
 
-    @BindView(R.id.spinner)
-    Spinner spinner;
+//    @BindView(R.id.spinner)
+//    Spinner spinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,8 +97,8 @@ public class SleepTimeView extends Fragment {
         void onListFragmentInteraction(SleepTime item);
     }
 
-    @OnItemSelected(R.id.spinner)
-    void onItemSelected(int position) {
-        Log.d("SPINNERPOS", Integer.toString(position));
-    }
+//    @OnItemSelected(R.id.spinner)
+//    void onItemSelected(int position) {
+//        Log.d("SPINNERPOS", Integer.toString(position));
+//    }
 }

@@ -2,7 +2,9 @@ package com.study.alryumin.sleeptrack.view.authorization.view;
 
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +22,10 @@ import com.study.alryumin.sleeptrack.view.authorization.presenter.SignUpPresente
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class SignUpFragment extends Fragment implements SignUpContract.View, View.OnClickListener{
+public class SignUpView extends Fragment implements SignUpContract.View, View.OnClickListener{
     private SignUpContract.Presenter presenter;
 
     @BindView(R.id.email) EditText email;
@@ -29,6 +33,10 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
     @BindView(R.id.passwordRepeat) EditText passwordRepeat;
     @BindView(R.id.signUpButton) Button signUpButton;
     @BindView(R.id.signInButton) Button signInButton;
+
+    private String emailText;
+    private String passwordText;
+    private String passwordRepeatText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,22 +49,22 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
 
-        initView(rootView);
-        initListener();
+        if (savedInstanceState != null) {
+            setBundledFields(savedInstanceState);
+        }
+
+        ButterKnife.bind(this, rootView);
+
+        initView();
 
         return rootView;
     }
 
-    private void initView(View view) {
-
+    public void initView(){
+        signInButton.setPaintFlags(signInButton.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
     }
 
-    private void initListener() {
-        signInButton.setOnClickListener(this);
-        signUpButton.setOnClickListener(this);
-    }
-
-    @Override
+    @OnClick({R.id.signInButton, R.id.signUpButton})
     public void onClick(View view) {
         AuthorizationActivity activity;
         switch (view.getId()) {
@@ -65,7 +73,7 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
                 break;
             case R.id.signInButton:
                 activity = (AuthorizationActivity) getActivity();
-                activity.setContent(new SignInFragment());
+                activity.setContent(new SignInView());
                 break;
         }
     }
@@ -100,5 +108,20 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
     @Override
     public Context getSignUpContext() {
         return this.getContext();
+    }
+
+    private void setBundledFields(Bundle savedInstanceState) {
+        if (savedInstanceState.getSerializable("emailText") != null) {
+            emailText = (String) savedInstanceState.getSerializable("emailText");
+            email.setText(emailText);
+        }
+        if (savedInstanceState.getSerializable("passwordText") != null) {
+            passwordText = (String) savedInstanceState.getSerializable("passwordText");
+            password.setText(passwordText);
+        }
+        if (savedInstanceState.getSerializable("passwordRepeatText") != null) {
+            passwordRepeatText = (String) savedInstanceState.getSerializable("passwordRepeatText");
+            passwordRepeat.setText(passwordRepeatText);
+        }
     }
 }
