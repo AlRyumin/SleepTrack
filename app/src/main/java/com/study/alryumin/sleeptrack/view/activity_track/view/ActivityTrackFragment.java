@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.view.main.view;
+package com.study.alryumin.sleeptrack.view.activity_track.view;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -17,12 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
-import com.study.alryumin.sleeptrack.view.main.contract.ActivityTrackContract;
-import com.study.alryumin.sleeptrack.view.main.presenter.ActivityTrackPresenter;
-import com.study.alryumin.sleeptrack.view.main.view.adapater.ActivityTrackRecyclerViewAdapter;
+import com.study.alryumin.sleeptrack.view.activity_track.contract.ActivityTrackContract;
+import com.study.alryumin.sleeptrack.view.activity_track.presenter.ActivityTrackPresenter;
+import com.study.alryumin.sleeptrack.view.activity_track.view.adapter.ActivityTrackRecyclerViewAdapter;
 
 import java.util.Calendar;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

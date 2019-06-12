@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.view.main.view.adapater;
+package com.study.alryumin.sleeptrack.view.sleep_time.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.model.SleepTime;
-import com.study.alryumin.sleeptrack.view.main.view.SleepTimeView;
+import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView;
 
 import java.util.List;
 

@@ -1,18 +1,14 @@
-package com.study.alryumin.sleeptrack.view.main.presenter;
-
-import android.util.Log;
+package com.study.alryumin.sleeptrack.view.activity_track.presenter;
 
 import com.study.alryumin.sleeptrack.helper.DatabaseHelper;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 import com.study.alryumin.sleeptrack.repository.room.ActivityTrackDao;
 import com.study.alryumin.sleeptrack.view.App;
-import com.study.alryumin.sleeptrack.view.main.contract.ActivityTrackContract;
+import com.study.alryumin.sleeptrack.view.activity_track.contract.ActivityTrackContract;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class ActivityTrackPresenter implements ActivityTrackContract.Presenter {

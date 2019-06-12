@@ -1,12 +1,10 @@
-package com.study.alryumin.sleeptrack.view.main.view;
+package com.study.alryumin.sleeptrack.view.sleep_time.view;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,12 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.model.SleepTime;
-import com.study.alryumin.sleeptrack.view.main.presenter.SleepTimePresenter;
-import com.study.alryumin.sleeptrack.view.main.view.adapater.SleepTimeRecyclerViewAdapter;
+import com.study.alryumin.sleeptrack.view.sleep_time.presenter.SleepTimePresenter;
+import com.study.alryumin.sleeptrack.view.sleep_time.view.adapter.SleepTimeRecyclerViewAdapter;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnItemSelected;
 
 
 public class SleepTimeView extends Fragment {

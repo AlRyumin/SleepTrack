@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack;
+package com.study.alryumin.sleeptrack.view.splash;
 
 import android.content.Intent;
 import android.os.Bundle;

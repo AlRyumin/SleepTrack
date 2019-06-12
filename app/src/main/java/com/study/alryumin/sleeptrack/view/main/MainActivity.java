@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack;
+package com.study.alryumin.sleeptrack.view.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +18,11 @@ import androidx.work.WorkManager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.utils.TrackActivity;
-import com.study.alryumin.sleeptrack.view.main.view.ActivityTrackFragment;
-import com.study.alryumin.sleeptrack.view.main.view.SleepTimeView;
+import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackFragment;
+import com.study.alryumin.sleeptrack.view.authorization.AuthorizationActivity;
+import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView;
 import com.study.alryumin.sleeptrack.worker.ActivityTrackWorker;
 
 import java.util.concurrent.TimeUnit;

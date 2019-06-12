@@ -1,14 +1,13 @@
-package com.study.alryumin.sleeptrack.view.authorization.contract;
+package com.study.alryumin.sleeptrack.view.signin.contract;
 
 import android.content.Context;
 import android.widget.EditText;
 
 import java.util.ArrayList;
 
-public interface SignUpContract {
-
+public interface SignInContract {
     interface Presenter {
-        void userRegister();
+        void userLogin();
         ArrayList<String> getErrors(Context context);
         void showErrors(ArrayList<String> errors, Context context);
     }
@@ -16,7 +15,6 @@ public interface SignUpContract {
     interface View {
         EditText getEmail();
         EditText getPassword();
-        EditText getPasswordRepeat();
-        Context getSignUpContext();
+        Context getSignInContext();
     }
 }

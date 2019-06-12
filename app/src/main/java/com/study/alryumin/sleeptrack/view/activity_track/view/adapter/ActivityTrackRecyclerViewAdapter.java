@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.view.main.view.adapater;
+package com.study.alryumin.sleeptrack.view.activity_track.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.view.main.view.ActivityTrackFragment.OnListFragmentInteractionListener;
+import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackFragment.OnListFragmentInteractionListener;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 
 import java.util.List;

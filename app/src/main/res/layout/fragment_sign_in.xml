@@ -5,7 +5,7 @@
     android:id="@+id/fragmentsignIn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.authorization.view.SignInView">
+    tools:context=".view.signin.view.SignInView">
 
     <LinearLayout
         android:id="@+id/content"

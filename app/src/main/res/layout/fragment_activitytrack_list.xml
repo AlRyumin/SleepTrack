@@ -12,12 +12,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/list"
-        android:name="com.study.alryumin.sleeptrack.fragment.main.ActivityTrackFragment"
+        android:name="com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:context=".view.main.view.ActivityTrackFragment"
+        tools:context=".view.activity_track.view.ActivityTrackFragment"
         tools:listitem="@layout/activitytrack_viewholder" />
 </LinearLayout>

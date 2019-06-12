@@ -29,12 +29,12 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".AuthorizationActivity" />
+        <activity android:name=".view.authorization.AuthorizationActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".view.splash.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>

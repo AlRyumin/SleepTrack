@@ -1,11 +1,11 @@
-package com.study.alryumin.sleeptrack.view.main.presenter;
+package com.study.alryumin.sleeptrack.view.sleep_time.presenter;
 
 import com.study.alryumin.sleeptrack.helper.DatabaseHelper;
 import com.study.alryumin.sleeptrack.model.SleepTime;
 import com.study.alryumin.sleeptrack.repository.room.SleepTimeDao;
 import com.study.alryumin.sleeptrack.utils.info.CountSleepTime;
 import com.study.alryumin.sleeptrack.view.App;
-import com.study.alryumin.sleeptrack.view.main.contract.SleepTimeContract;
+import com.study.alryumin.sleeptrack.view.sleep_time.contract.SleepTimeContract;
 
 import java.util.List;
 

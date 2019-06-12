@@ -1,10 +1,9 @@
-package com.study.alryumin.sleeptrack.view.authorization.view;
+package com.study.alryumin.sleeptrack.view.signup.view;
 
 
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +13,11 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.study.alryumin.sleeptrack.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.view.authorization.contract.SignUpContract;
-import com.study.alryumin.sleeptrack.view.authorization.presenter.SignUpPresenter;
+import com.study.alryumin.sleeptrack.view.authorization.AuthorizationActivity;
+import com.study.alryumin.sleeptrack.view.signin.view.SignInView;
+import com.study.alryumin.sleeptrack.view.signup.contract.SignUpContract;
+import com.study.alryumin.sleeptrack.view.signup.presenter.SignUpPresenter;
 
 import java.util.ArrayList;
 

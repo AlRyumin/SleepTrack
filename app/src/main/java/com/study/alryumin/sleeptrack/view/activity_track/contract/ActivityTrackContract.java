@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack.view.main.contract;
+package com.study.alryumin.sleeptrack.view.activity_track.contract;
 
 import java.text.ParseException;
 import java.util.Calendar;

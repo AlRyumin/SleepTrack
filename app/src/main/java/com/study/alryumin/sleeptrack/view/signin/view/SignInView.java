@@ -1,24 +1,22 @@
-package com.study.alryumin.sleeptrack.view.authorization.view;
+package com.study.alryumin.sleeptrack.view.signin.view;
 
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.study.alryumin.sleeptrack.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.view.authorization.contract.SignInContract;
-import com.study.alryumin.sleeptrack.view.authorization.presenter.SignInPresenter;
+import com.study.alryumin.sleeptrack.view.authorization.AuthorizationActivity;
+import com.study.alryumin.sleeptrack.view.signin.contract.SignInContract;
+import com.study.alryumin.sleeptrack.view.signin.presenter.SignInPresenter;
+import com.study.alryumin.sleeptrack.view.signup.view.SignUpView;
 
 import java.util.ArrayList;
 

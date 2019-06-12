@@ -1,4 +1,4 @@
-package com.study.alryumin.sleeptrack;
+package com.study.alryumin.sleeptrack.view.authorization;
 
 import android.os.Bundle;
 
@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.study.alryumin.sleeptrack.view.authorization.view.SignInView;
-import com.study.alryumin.sleeptrack.view.authorization.view.SignUpView;
+import com.study.alryumin.sleeptrack.R;
+import com.study.alryumin.sleeptrack.view.signin.view.SignInView;
+import com.study.alryumin.sleeptrack.view.signup.view.SignUpView;
 
 public class AuthorizationActivity extends AppCompatActivity {
 
