@@ -45,7 +45,7 @@ public class SleepTimeView extends Fragment {
             Context context = list.getContext();
             RecyclerView recyclerView = (RecyclerView) list;
 
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
 
             recyclerView.setAdapter(new SleepTimeRecyclerViewAdapter(sleepTimePresenter.getItems(), mListener));

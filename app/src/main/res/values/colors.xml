@@ -5,4 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorNeutral">#BFBFBF</color>
     <color name="colorScreenBackground">#444440</color>
+    <color name="colorStartBackground">#232e76</color>
+    <color name="colorEndBackground">#ebedf9</color>
+    <color name="colorStartText">#FFFFFF</color>
+    <color name="colorEndText">#12173b</color>
 </resources>

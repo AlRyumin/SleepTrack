@@ -3,6 +3,7 @@ package com.study.alryumin.sleeptrack.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +20,19 @@ public class SleepTime {
 
     public Date getStartAt() {
         return startAt;
+    }
+
+    public String getStartAtFormat() {
+        return getDateFormat(startAt);
+    }
+
+    public String getFinishAtFormat() {
+        return getDateFormat(finishAt);
+    }
+
+    private String getDateFormat(Date date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss - yyyy.MM.dd");
+        return dateFormat.format( date );
     }
 
     public Date getFinishAt() {
@@ -48,6 +62,15 @@ public class SleepTime {
                         TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(getSleepTime())),
                 TimeUnit.MILLISECONDS.toSeconds(getSleepTime()) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(getSleepTime())));
+
+        return sleepTime;
+    }
+
+    public String getSleepTimeFormat(boolean withoutSeconds){
+        String sleepTime = String.format("%02d:%02d",
+                TimeUnit.MILLISECONDS.toHours(getSleepTime()),
+                TimeUnit.MILLISECONDS.toMinutes(getSleepTime()) -
+                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(getSleepTime())));
 
         return sleepTime;
     }

@@ -58,4 +58,8 @@
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">sans</item>
     </style>
+
+    <style name="DialogTheme">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
 </resources>

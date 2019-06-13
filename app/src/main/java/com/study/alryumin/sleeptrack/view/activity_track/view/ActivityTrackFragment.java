@@ -121,7 +121,7 @@ public class ActivityTrackFragment extends Fragment implements ActivityTrackCont
     }
 
     public void setDate() {
-        new DatePickerDialog(this.getContext(), d,
+        new DatePickerDialog(this.getContext(), R.style.DialogTheme, d,
                 dateAndTime.get(Calendar.YEAR),
                 dateAndTime.get(Calendar.MONTH),
                 dateAndTime.get(Calendar.DAY_OF_MONTH))

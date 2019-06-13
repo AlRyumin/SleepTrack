@@ -16,11 +16,11 @@ import java.util.List;
 
 public class SleepTimeRecyclerViewAdapter extends RecyclerView.Adapter<SleepTimeRecyclerViewAdapter.ViewHolder> {
 
-    private final List<SleepTime> mValues;
+    private final List<SleepTime> values;
     private final SleepTimeView.OnListFragmentInteractionListener mListener;
 
     public SleepTimeRecyclerViewAdapter(List<SleepTime> items, SleepTimeView.OnListFragmentInteractionListener listener) {
-        mValues = items;
+        values = items;
         mListener = listener;
     }
 
@@ -34,17 +34,19 @@ public class SleepTimeRecyclerViewAdapter extends RecyclerView.Adapter<SleepTime
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(Long.toString(mValues.get(position).getId()));
-        holder.mContentView.setText(mValues.get(position).toString());
+        SleepTime sleepTime = values.get(position);
+        holder.item = sleepTime;
+        holder.sleepStart.setText(sleepTime.getStartAtFormat());
+        holder.sleepFinish.setText(sleepTime.getFinishAtFormat());
+        holder.sleepTime.setText(sleepTime.getSleepTimeFormat(true));
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+        holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onListFragmentInteraction(holder.item);
                 }
             }
         });
@@ -52,26 +54,28 @@ public class SleepTimeRecyclerViewAdapter extends RecyclerView.Adapter<SleepTime
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return values.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public SleepTime mItem;
+        public final View view;
+        public final TextView sleepStart;
+        public final TextView sleepFinish;
+        public final TextView sleepTime;
+        public SleepTime item;
 
         public ViewHolder(View view) {
             super(view);
-            mView = view;
-            mIdView = view.findViewById(R.id.item_number);
-            mContentView = view.findViewById(R.id.content);
+            this.view = view;
+            sleepStart = view.findViewById(R.id.sleepStart);
+            sleepFinish = view.findViewById(R.id.sleepFinish);
+            sleepTime = view.findViewById(R.id.sleepTime);
         }
 
         @NonNull
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + sleepStart.getText() + "'";
         }
     }
 }
