@@ -6,18 +6,22 @@
     <Button android:id="@+id/dateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/MainButtonText"
+        android:background="@drawable/main_button"
+        android:textColor="@drawable/main_button_text_color"
+        android:layout_margin="@dimen/list_margin_horizontal"
         android:text=""/>
 
     <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/list"
-        android:name="com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackFragment"
+        android:name="com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:paddingTop="@dimen/list_margin_horizontal"
+        android:background="@drawable/background_accent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:context=".view.activity_track.view.ActivityTrackFragment"
-        tools:listitem="@layout/activitytrack_viewholder" />
+        tools:context=".view.activity_track.view.ActivityTrackView"
+        tools:listitem="@layout/activity_track_viewholder" />
 </LinearLayout>

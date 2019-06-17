@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.study.alryumin.sleeptrack.R;
-import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackFragment.OnListFragmentInteractionListener;
+import com.study.alryumin.sleeptrack.utils.DateFormatHelper;
+import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackView.OnListFragmentInteractionListener;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 
 import java.util.List;
@@ -21,35 +22,38 @@ import java.util.List;
  */
 public class ActivityTrackRecyclerViewAdapter extends RecyclerView.Adapter<ActivityTrackRecyclerViewAdapter.ViewHolder> {
 
-    private final List<ActivityTrack> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final List<ActivityTrack> values;
+    private final OnListFragmentInteractionListener listener;
 
     public ActivityTrackRecyclerViewAdapter(List<ActivityTrack> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
-        mListener = listener;
+        values = items;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activitytrack_viewholder, parent, false);
+                .inflate(R.layout.activity_track_viewholder, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(Long.toString(mValues.get(position).getId()));
-        holder.mContentView.setText(mValues.get(position).toString());
+        ActivityTrack activityTrack = values.get(position);
+        holder.item = activityTrack;
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+        holder.activityTime.setText(DateFormatHelper.getTimeFormat(activityTrack.getActivityTime(), true));
+        holder.activityStart.setText(DateFormatHelper.getDateFormat(activityTrack.getStartAt()));
+        holder.activityFinish.setText(DateFormatHelper.getDateFormat(activityTrack.getFinishAt()));
+
+        holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != mListener) {
+                if (null != listener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    listener.onListFragmentInteraction(holder.item);
                 }
             }
         });
@@ -57,26 +61,28 @@ public class ActivityTrackRecyclerViewAdapter extends RecyclerView.Adapter<Activ
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return values.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public ActivityTrack mItem;
+        public final View view;
+        public final TextView activityTime;
+        public final TextView activityStart;
+        public final TextView activityFinish;
+        public ActivityTrack item;
 
         public ViewHolder(View view) {
             super(view);
-            mView = view;
-            mIdView = view.findViewById(R.id.item_number);
-            mContentView = view.findViewById(R.id.content);
+            this.view = view;
+            activityTime = view.findViewById(R.id.activityTime);
+            activityStart = view.findViewById(R.id.activityStart);
+            activityFinish = view.findViewById(R.id.activityFinish);
         }
 
         @NonNull
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + activityTime.getText() + "'";
         }
     }
 }

@@ -22,19 +22,6 @@ public class SleepTime {
         return startAt;
     }
 
-    public String getStartAtFormat() {
-        return getDateFormat(startAt);
-    }
-
-    public String getFinishAtFormat() {
-        return getDateFormat(finishAt);
-    }
-
-    private String getDateFormat(Date date){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss - yyyy.MM.dd");
-        return dateFormat.format( date );
-    }
-
     public Date getFinishAt() {
         return finishAt;
     }
@@ -55,27 +42,7 @@ public class SleepTime {
         this.sleepTime = sleepTime;
     }
 
-    public String getSleepTimeFormat(){
-        String sleepTime = String.format("%02d:%02d:%02d",
-                TimeUnit.MILLISECONDS.toHours(getSleepTime()),
-                TimeUnit.MILLISECONDS.toMinutes(getSleepTime()) -
-                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(getSleepTime())),
-                TimeUnit.MILLISECONDS.toSeconds(getSleepTime()) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(getSleepTime())));
-
-        return sleepTime;
-    }
-
-    public String getSleepTimeFormat(boolean withoutSeconds){
-        String sleepTime = String.format("%02d:%02d",
-                TimeUnit.MILLISECONDS.toHours(getSleepTime()),
-                TimeUnit.MILLISECONDS.toMinutes(getSleepTime()) -
-                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(getSleepTime())));
-
-        return sleepTime;
-    }
-
     public String toString(){
-        return "Start: " + getStartAt() + " '\n Finish: " + getFinishAt() + " '\n Sleep: " + getSleepTimeFormat();
+        return "Start: " + getStartAt() + " '\n Finish: " + getFinishAt() + " '\n Sleep: " + getSleepTime();
     }
 }

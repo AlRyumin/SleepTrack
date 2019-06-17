@@ -15,6 +15,9 @@ import com.study.alryumin.sleeptrack.model.SleepTime;
 import com.study.alryumin.sleeptrack.view.sleep_time.presenter.SleepTimePresenter;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.adapter.SleepTimeRecyclerViewAdapter;
 
+import java.util.Collections;
+import java.util.List;
+
 import butterknife.ButterKnife;
 
 
@@ -47,8 +50,10 @@ public class SleepTimeView extends Fragment {
 
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
+            List<SleepTime> items = sleepTimePresenter.getItems();
+            Collections.reverse(items);
 
-            recyclerView.setAdapter(new SleepTimeRecyclerViewAdapter(sleepTimePresenter.getItems(), mListener));
+            recyclerView.setAdapter(new SleepTimeRecyclerViewAdapter(items, mListener));
         }
 
         ButterKnife.bind(this, rootView);

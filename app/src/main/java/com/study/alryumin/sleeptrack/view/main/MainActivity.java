@@ -20,7 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.utils.TrackActivity;
-import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackFragment;
+import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackView;
 import com.study.alryumin.sleeptrack.view.authorization.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView;
 import com.study.alryumin.sleeptrack.worker.ActivityTrackWorker;
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_activity) {
-            setContent(new ActivityTrackFragment());
+            setContent(new ActivityTrackView());
         } if (id == R.id.nav_sleep_time) {
             setContent(new SleepTimeView());
         } else if (id == R.id.nav_sign_out) {
@@ -123,10 +123,10 @@ public class MainActivity extends AppCompatActivity
     public void setContent() {
         int content = R.id.main_content;
 
-        Fragment fragment = new ActivityTrackFragment();
+        Fragment fragment = new ActivityTrackView();
 
         if (activeFragment == ACTIVITY_TRACK_FRAGMENT) {
-            fragment = new ActivityTrackFragment();
+            fragment = new ActivityTrackView();
         } else if (activeFragment == SLEEP_TIME_FRAGMENT){
             fragment = new SleepTimeView();
         }
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void saveActiveFragment(Fragment fragment) {
-        if(fragment instanceof ActivityTrackFragment){
+        if(fragment instanceof ActivityTrackView){
             activeFragment = ACTIVITY_TRACK_FRAGMENT;
         } else if(fragment instanceof SleepTimeView){
             activeFragment = SLEEP_TIME_FRAGMENT;

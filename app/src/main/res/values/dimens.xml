@@ -9,6 +9,6 @@
     <dimen name="text_padding">8dp</dimen>
     <dimen name="logo_size">100dp</dimen>
     <dimen name="edit_margin_top">16dp</dimen>
-    <dimen name="list_margin_vertical">8dp</dimen>
+    <dimen name="list_margin_vertical">16dp</dimen>
     <dimen name="list_margin_horizontal">8dp</dimen>
 </resources>

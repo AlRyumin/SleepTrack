@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.model.SleepTime;
+import com.study.alryumin.sleeptrack.utils.DateFormatHelper;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView;
 
 import java.util.List;
@@ -36,9 +37,9 @@ public class SleepTimeRecyclerViewAdapter extends RecyclerView.Adapter<SleepTime
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         SleepTime sleepTime = values.get(position);
         holder.item = sleepTime;
-        holder.sleepStart.setText(sleepTime.getStartAtFormat());
-        holder.sleepFinish.setText(sleepTime.getFinishAtFormat());
-        holder.sleepTime.setText(sleepTime.getSleepTimeFormat(true));
+        holder.sleepStart.setText(DateFormatHelper.getDateFormat(sleepTime.getStartAt()));
+        holder.sleepFinish.setText(DateFormatHelper.getDateFormat(sleepTime.getFinishAt()));
+        holder.sleepTime.setText(DateFormatHelper.getTimeFormat(sleepTime.getSleepTime()));
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override

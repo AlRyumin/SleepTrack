@@ -22,6 +22,8 @@ import com.study.alryumin.sleeptrack.view.activity_track.presenter.ActivityTrack
 import com.study.alryumin.sleeptrack.view.activity_track.view.adapter.ActivityTrackRecyclerViewAdapter;
 
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +35,7 @@ import butterknife.OnClick;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ActivityTrackFragment extends Fragment implements ActivityTrackContract.View {
+public class ActivityTrackView extends Fragment implements ActivityTrackContract.View {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -77,7 +79,10 @@ public class ActivityTrackFragment extends Fragment implements ActivityTrackCont
 
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-            recyclerView.setAdapter(new ActivityTrackRecyclerViewAdapter(activityTrackPresenter.getItems(dateAndTime), mListener));
+            List<ActivityTrack> items = activityTrackPresenter.getItems(dateAndTime);
+            Collections.reverse(items);
+
+            recyclerView.setAdapter(new ActivityTrackRecyclerViewAdapter(items, mListener));
         }
 
         ButterKnife.bind(this, rootView);
@@ -135,7 +140,10 @@ public class ActivityTrackFragment extends Fragment implements ActivityTrackCont
             dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             setInitialDateTime();
 
-            recyclerView.setAdapter(new ActivityTrackRecyclerViewAdapter(activityTrackPresenter.getItems(dateAndTime), mListener));
+            List<ActivityTrack> items = activityTrackPresenter.getItems(dateAndTime);
+            Collections.reverse(items);
+
+            recyclerView.setAdapter(new ActivityTrackRecyclerViewAdapter(items, mListener));
 
         }
     };

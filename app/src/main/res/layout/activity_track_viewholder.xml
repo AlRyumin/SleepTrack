@@ -9,10 +9,10 @@
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/sleepTime"
+        android:id="@+id/activityTime"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@drawable/backround_clock"
+        android:background="@color/colorPrimary"
         android:gravity="center_vertical"
         android:padding="16dp"
         android:textColor="@color/colorPrimaryAccent" />
@@ -31,7 +31,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/sleepStart"
+            android:id="@+id/activityStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/text_padding"
@@ -45,7 +45,7 @@
             android:background="@drawable/background_splash" />
 
         <TextView
-            android:id="@+id/sleepFinish"
+            android:id="@+id/activityFinish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/text_padding"
@@ -53,5 +53,4 @@
             android:textAppearance="?attr/textAppearanceListItem"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
-
 </LinearLayout>
