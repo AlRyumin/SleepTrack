@@ -11,16 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.model.SleepTime;
 import com.study.alryumin.sleeptrack.utils.DateFormatHelper;
-import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView;
+import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeListView;
 
 import java.util.List;
 
 public class SleepTimeRecyclerViewAdapter extends RecyclerView.Adapter<SleepTimeRecyclerViewAdapter.ViewHolder> {
 
     private final List<SleepTime> values;
-    private final SleepTimeView.OnListFragmentInteractionListener mListener;
+    private final SleepTimeListView.OnListFragmentInteractionListener mListener;
 
-    public SleepTimeRecyclerViewAdapter(List<SleepTime> items, SleepTimeView.OnListFragmentInteractionListener listener) {
+    public SleepTimeRecyclerViewAdapter(List<SleepTime> items, SleepTimeListView.OnListFragmentInteractionListener listener) {
         values = items;
         mListener = listener;
     }

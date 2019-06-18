@@ -7,12 +7,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/list"
-        android:name="com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView"
+        android:name="com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/list_margin_horizontal"
         android:background="@drawable/background_accent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:context=".view.sleep_time.view.SleepTimeView"
+        tools:context=".view.sleep_time.view.SleepTimeListView"
         tools:listitem="@layout/activity_track_viewholder" />
 </LinearLayout>
