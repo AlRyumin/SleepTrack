@@ -8,7 +8,7 @@
     tools:context=".view.main.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/main_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

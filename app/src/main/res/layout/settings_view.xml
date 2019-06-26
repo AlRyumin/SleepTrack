@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.settings.view.SettingsView">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/list_margin_horizontal"
+        android:layout_marginEnd="@dimen/list_margin_horizontal"
+        android:layout_marginBottom="@dimen/list_margin_vertical"
+        android:layout_marginTop="@dimen/list_margin_vertical"
+        android:background="@color/colorBackground"
+        android:orientation="horizontal">
+        <TextView
+            android:theme="@style/TextViewPrimaryHeader"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_min_time_title"/>
+
+        <EditText
+            android:id="@+id/sleepTimePick"
+            android:theme="@style/EditTextSecondary"
+            android:background="@layout/background_edittext_secondary"
+            android:padding="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
+    </RelativeLayout>
+
+</LinearLayout>

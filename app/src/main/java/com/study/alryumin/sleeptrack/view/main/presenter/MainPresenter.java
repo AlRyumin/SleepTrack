@@ -1,4 +1,6 @@
 package com.study.alryumin.sleeptrack.view.main.presenter;
 
-public class MainPresenter {
+import com.study.alryumin.sleeptrack.view.main.contract.MainContract;
+
+public class MainPresenter implements MainContract.Presenter {
 }

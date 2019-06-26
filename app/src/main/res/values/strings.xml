@@ -39,4 +39,6 @@
     <string name="nav_activity_track">Activities</string>
     <string name="nav_sleep_time">Sleep Time</string>
     <string name="manage_sleep">Manage Your Sleep</string>
+
+    <string name="settings_min_time_title">Min Sleep Time</string>
 </resources>

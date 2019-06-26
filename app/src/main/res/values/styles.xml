@@ -40,6 +40,12 @@
         <item name="android:typeface">monospace</item>
     </style>
 
+    <style name="EditTextSecondary" parent="Base.V7.Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+
     <style name="MainButtonText">
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingLeft">20dp</item>
@@ -62,5 +68,10 @@
 
     <style name="DialogTheme">
         <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="ProgressDialog"  parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="android:layout_margin">0dp</item>
     </style>
 </resources>

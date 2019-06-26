@@ -22,6 +22,7 @@ import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.utils.TrackActivity;
 import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackView;
 import com.study.alryumin.sleeptrack.view.authorization.AuthorizationActivity;
+import com.study.alryumin.sleeptrack.view.settings.view.SettingsView;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView;
 import com.study.alryumin.sleeptrack.worker.ActivityTrackWorker;
 
@@ -30,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final int ACTIVITY_TRACK_FRAGMENT = 1, SLEEP_TIME_FRAGMENT = 2;
+    private static final int ACTIVITY_TRACK_FRAGMENT = 1, SLEEP_TIME_FRAGMENT = 2, SETTINGS_FRAGMENT = 3;
     private static final String ACTIVITY_TRACK_WORKER_TAG = "activityTrackWorker";
     private int activeFragment;
 
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            setContent(new SettingsView());
             return true;
         }
 
@@ -129,6 +131,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new ActivityTrackView();
         } else if (activeFragment == SLEEP_TIME_FRAGMENT){
             fragment = new SleepTimeView();
+        } else if (activeFragment == SETTINGS_FRAGMENT){
+            fragment = new SettingsView();
         }
 
         replaceFragment(fragment, content);
@@ -154,6 +158,8 @@ public class MainActivity extends AppCompatActivity
             activeFragment = ACTIVITY_TRACK_FRAGMENT;
         } else if(fragment instanceof SleepTimeView){
             activeFragment = SLEEP_TIME_FRAGMENT;
+        }else if(fragment instanceof SettingsView){
+            activeFragment = SETTINGS_FRAGMENT;
         }
     }
 
