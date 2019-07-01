@@ -10,6 +10,7 @@ import androidx.work.Worker;
 import com.study.alryumin.sleeptrack.helper.DatabaseHelper;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 import com.study.alryumin.sleeptrack.repository.room.ActivityTrackDao;
+import com.study.alryumin.sleeptrack.utils.TrackActivity;
 import com.study.alryumin.sleeptrack.view.App;
 
 import java.io.BufferedReader;
@@ -28,7 +29,8 @@ public class ActivityTrackWorker extends Worker {
 
         try {
 //            trackActivity();
-            runComamnd();
+//            runComamnd();
+            trackService();
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,6 +38,10 @@ public class ActivityTrackWorker extends Worker {
         Log.d(TAG, "ActivityTrackWorker: end");
 
         return WorkerResult.SUCCESS;
+    }
+
+    public void trackService(){
+        TrackActivity.getInstance().track(getApplicationContext());
     }
 
     private void runComamnd(){

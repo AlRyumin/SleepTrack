@@ -1,23 +1,26 @@
 package com.study.alryumin.sleeptrack.view.sleep_time.view.adapter;
 
-import android.util.Log;
+import android.content.Context;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackView;
+import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeChartView;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeListView;
 
     public class SleepTimePagerAdapter extends FragmentPagerAdapter {
     private int NUM_ITEMS = 2;
-    private String[] titles= new String[]{"Tab 1", "Tab 2"};
+    private String[] titles;
     String TAG = "SleepTimePagerAdapter";
 
-    public SleepTimePagerAdapter(FragmentManager fm) {
+    public SleepTimePagerAdapter(FragmentManager fm, Context context) {
         super(fm);
-        Log.d(TAG, "Constructor");
+        titles= new String[]{
+                context.getString(R.string.sleep_time_tab_1),
+                context.getString(R.string.sleep_time_tab_2)
+        };
     }
 
     @Override
@@ -25,7 +28,6 @@ import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeListView;
 
     @Override
     public Fragment getItem(int position) {
-        Log.d(TAG, "getItem");
         if(position == 1){
             return new SleepTimeChartView();
         }

@@ -8,14 +8,23 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerTabStrip;
 import androidx.viewpager.widget.ViewPager;
 
 import com.study.alryumin.sleeptrack.R;
+import com.study.alryumin.sleeptrack.utils.LockableViewPager;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.adapter.SleepTimePagerAdapter;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class SleepTimeView extends Fragment {
-    private ViewPager viewPager;
+    private LockableViewPager viewPager;
+
+    @BindView(R.id.pagerHeader)
+    PagerTabStrip pagerHeader;
+
     SleepTimePagerAdapter pagerAdapter;
     final String TAG = "SleepTimeView";
 
@@ -27,9 +36,10 @@ public class SleepTimeView extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView");
 
         View rootView = inflater.inflate(R.layout.sleep_pager, container, false);
+
+        ButterKnife.bind(this, rootView);
 
         initView(rootView);
 
@@ -39,12 +49,13 @@ public class SleepTimeView extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d(TAG, "onDestroyView");
     }
 
     private void initView(View rootView) {
-        ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.pager);
-        pagerAdapter = new SleepTimePagerAdapter(getChildFragmentManager());
+        viewPager = (LockableViewPager) rootView.findViewById(R.id.pager);
+        viewPager.setSwipeable(false);
+
+        pagerAdapter = new SleepTimePagerAdapter(getChildFragmentManager(), getContext());
         viewPager.setAdapter(pagerAdapter);
     }
 }

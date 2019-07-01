@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity
 
         try {
             TrackActivity.getInstance().track(getBaseContext());
+            startActivityTrackWorker();
         } catch (Exception e) {
             e.printStackTrace();
         }

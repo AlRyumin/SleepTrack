@@ -5,17 +5,18 @@
     android:layout_height="match_parent"
     tools:context="com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView">
 
-    <androidx.viewpager.widget.ViewPager
+    <com.study.alryumin.sleeptrack.utils.LockableViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.viewpager.widget.PagerTabStrip
-            android:id="@+id/pager_header"
+            android:id="@+id/pagerHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="4dp"
-            android:paddingTop="4dp" />
+            android:paddingTop="4dp"
+            style="@style/PagerTabStripText"/>
 
-    </androidx.viewpager.widget.ViewPager>
+    </com.study.alryumin.sleeptrack.utils.LockableViewPager>
 </LinearLayout>

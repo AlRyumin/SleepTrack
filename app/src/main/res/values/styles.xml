@@ -24,14 +24,14 @@
 
     <style name="TextViewPrimaryHeader">
         <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">sans</item>
     </style>
 
     <style name="TextViewSubTitle">
         <item name="android:textColor">@color/colorNeutral</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="EditTextPrimary" parent="Base.V7.Widget.AppCompat.EditText">
@@ -59,6 +59,17 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="ChartMarkerTitle">
+        <item name="android:textColor">@color/colorPrimaryAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginEnd">@dimen/text_padding</item>
+    </style>
+
+    <style name="ChartMarkerText">
+        <item name="android:textColor">@color/colorPrimaryAccent</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
     <style name="TextNotice">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">16dp</item>
@@ -73,5 +84,13 @@
     <style name="ProgressDialog"  parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="android:layout_margin">0dp</item>
+    </style>
+
+    <style name="PagerTabStripText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:padding">10dp</item>
     </style>
 </resources>
