@@ -15,6 +15,7 @@ import android.os.SystemClock;
 public class TrackService extends Service {
     private final String TAG = "TrackService";
     private static final String HANDLER_THREAD = "trackHeandlerThread";
+    private ScreenTrackReceiver screenTrackReceiver;
 
     public TrackService() {
     }
@@ -40,7 +41,8 @@ public class TrackService extends Service {
         handlerThread.start();
         Looper looper = handlerThread.getLooper();
         Handler handler = new Handler(looper);
-        registerReceiver(new ScreenTrackReceiver(), mIntentFilter, null, handler);
+        screenTrackReceiver = new ScreenTrackReceiver();
+        registerReceiver(screenTrackReceiver, mIntentFilter, null, handler);
 
         return START_STICKY;
     }
@@ -60,6 +62,10 @@ public class TrackService extends Service {
     }
 
     private void selfRestart(){
+        if(null != screenTrackReceiver){
+            unregisterReceiver(screenTrackReceiver);
+        }
+
         Intent restartServiceTask = new Intent(getApplicationContext(), this.getClass());
         restartServiceTask.setPackage(getPackageName());
         PendingIntent restartPendingIntent = PendingIntent.getService(getApplicationContext(), 1, restartServiceTask, PendingIntent.FLAG_ONE_SHOT);

@@ -1,13 +1,16 @@
 package com.study.alryumin.sleeptrack.view.sleep_time.view;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,14 +22,18 @@ import com.study.alryumin.sleeptrack.view.sleep_time.view.adapter.SleepTimeRecyc
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class SleepTimeListView extends Fragment {
     private SleepTimePresenter sleepTimePresenter;
-
+    private SleepTimeRecyclerViewAdapter adapter;
     private OnListFragmentInteractionListener listener;
     final String TAG = "SleepTimeListView";
+
+//    @BindView(R.id.coordinatorLayout)
+    CoordinatorLayout coordinatorLayout;
 
 //    @BindView(R.id.spinner)
 //    Spinner spinner;
@@ -45,8 +52,10 @@ public class SleepTimeListView extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_sleep_time_view, container, false);
         View list = rootView.findViewById(R.id.list);
+        coordinatorLayout = rootView.findViewById(R.id.coordinatorLayout);
 
-        // Set the adapter
+        ButterKnife.bind(this, rootView);
+
         if (list instanceof RecyclerView) {
             Context context = list.getContext();
             RecyclerView recyclerView = (RecyclerView) list;
@@ -56,10 +65,18 @@ public class SleepTimeListView extends Fragment {
             List<SleepTime> items = sleepTimePresenter.getItems();
             Collections.reverse(items);
 
-            recyclerView.setAdapter(new SleepTimeRecyclerViewAdapter(items, listener));
-        }
+            adapter = new SleepTimeRecyclerViewAdapter(items, listener);
 
-        ButterKnife.bind(this, rootView);
+            recyclerView.setAdapter(adapter);
+
+            SleepTimeTouchHelper sleepTimeTouchHelper = new SleepTimeTouchHelper(getContext());
+            sleepTimeTouchHelper.setRecyclerView(recyclerView);
+            sleepTimeTouchHelper.setAdapter(adapter);
+            sleepTimeTouchHelper.setCoordinatorLayout(coordinatorLayout);
+
+            ItemTouchHelper itemTouchhelper = new ItemTouchHelper(sleepTimeTouchHelper);
+            itemTouchhelper.attachToRecyclerView(recyclerView);
+        }
 
         return rootView;
     }
