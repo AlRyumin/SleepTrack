@@ -34,7 +34,7 @@ public class ActivityTrackRecyclerViewAdapter extends RecyclerView.Adapter<Activ
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_track_viewholder, parent, false);
+                .inflate(R.layout.activity_track_list_view, parent, false);
         return new ViewHolder(view);
     }
 

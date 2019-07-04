@@ -47,7 +47,7 @@ public class SignUpView extends Fragment implements SignUpContract.View, View.On
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
+        View rootView = inflater.inflate(R.layout.sign_up_view, container, false);
 
         if (savedInstanceState != null) {
             setBundledFields(savedInstanceState);

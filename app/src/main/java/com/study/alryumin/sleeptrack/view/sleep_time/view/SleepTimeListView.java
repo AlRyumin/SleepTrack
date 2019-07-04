@@ -1,7 +1,6 @@
 package com.study.alryumin.sleeptrack.view.sleep_time.view;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +21,6 @@ import com.study.alryumin.sleeptrack.view.sleep_time.view.adapter.SleepTimeRecyc
 import java.util.Collections;
 import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -50,7 +48,7 @@ public class SleepTimeListView extends Fragment {
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
 
-        View rootView = inflater.inflate(R.layout.fragment_sleep_time_view, container, false);
+        View rootView = inflater.inflate(R.layout.sleep_time_viewholder, container, false);
         View list = rootView.findViewById(R.id.list);
         coordinatorLayout = rootView.findViewById(R.id.coordinatorLayout);
 

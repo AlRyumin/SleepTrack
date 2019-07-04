@@ -64,7 +64,7 @@ public class ActivityTrackView extends Fragment implements ActivityTrackContract
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_activitytrack_list, container, false);
+        View rootView = inflater.inflate(R.layout.activity_track_viewholder, container, false);
         View list = rootView.findViewById(R.id.list);
 
         if (list instanceof RecyclerView) {

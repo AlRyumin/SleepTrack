@@ -1,56 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/list_margin_horizontal"
-    android:layout_marginEnd="@dimen/list_margin_horizontal"
-    android:layout_marginBottom="@dimen/list_margin_vertical"
-    android:background="@color/colorBackground"
-    android:orientation="horizontal">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/activityTime"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:gravity="center_vertical"
-        android:padding="16dp"
-        android:textColor="@color/colorPrimaryAccent" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginVertical="@dimen/list_margin_vertical"
-        android:layout_marginStart="@dimen/list_margin_vertical"
-        android:layout_marginEnd="@dimen/list_margin_horizontal"
-        android:src="@drawable/ic_from_to" />
-
-    <LinearLayout
+    <Button android:id="@+id/dateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        style="@style/MainButtonText"
+        android:background="@drawable/main_button"
+        android:textColor="@drawable/main_button_text_color"
+        android:layout_margin="@dimen/list_margin_horizontal"
+        android:text=""/>
 
-        <TextView
-            android:id="@+id/activityStart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/text_padding"
-            android:paddingEnd="@dimen/text_padding"
-            android:textAppearance="?attr/textAppearanceListItem"
-            android:textColor="@color/colorPrimary" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@drawable/background_splash" />
-
-        <TextView
-            android:id="@+id/activityFinish"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/text_padding"
-            android:paddingEnd="@dimen/text_padding"
-            android:textAppearance="?attr/textAppearanceListItem"
-            android:textColor="@color/colorPrimary" />
-    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/list"
+        android:name="com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/list_margin_horizontal"
+        android:background="@drawable/background_accent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:context=".view.activity_track.view.ActivityTrackView"
+        tools:listitem="@layout/activity_track_list_view" />
 </LinearLayout>

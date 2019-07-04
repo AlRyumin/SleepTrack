@@ -46,7 +46,7 @@ public class SignInView extends Fragment implements SignInContract.View, View.On
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_sign_in, container, false);
+        View rootView = inflater.inflate(R.layout.sign_in_view, container, false);
 
         if (savedInstanceState != null) {
             setBundledFields(savedInstanceState);
