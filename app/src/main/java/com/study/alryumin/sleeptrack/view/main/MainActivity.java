@@ -24,6 +24,7 @@ import com.study.alryumin.sleeptrack.view.activity_track.view.ActivityTrackView;
 import com.study.alryumin.sleeptrack.view.authorization.AuthorizationActivity;
 import com.study.alryumin.sleeptrack.view.settings.view.SettingsView;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.SleepTimeView;
+import com.study.alryumin.sleeptrack.view.target.view.TargetView;
 import com.study.alryumin.sleeptrack.worker.ActivityTrackWorker;
 
 import java.util.concurrent.TimeUnit;
@@ -113,6 +114,8 @@ public class MainActivity extends AppCompatActivity
             setContent(new ActivityTrackView());
         } if (id == R.id.nav_sleep_time) {
             setContent(new SleepTimeView());
+        } else if (id == R.id.nav_target) {
+            setContent(new TargetView());
         } else if (id == R.id.nav_sign_out) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getApplicationContext(), AuthorizationActivity.class));
@@ -126,7 +129,7 @@ public class MainActivity extends AppCompatActivity
     public void setContent() {
         int content = R.id.main_content;
 
-        Fragment fragment = new ActivityTrackView();
+        Fragment fragment = new SleepTimeView();
 
         if (activeFragment == ACTIVITY_TRACK_FRAGMENT) {
             fragment = new ActivityTrackView();

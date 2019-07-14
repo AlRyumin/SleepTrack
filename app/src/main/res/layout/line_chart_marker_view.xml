@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/ChartMarkerTitle"
-                android:text="@string/sleep_time" />
+                android:text="@string/nav_sleep_time" />
             <TextView
                 android:id="@+id/sleepTime"
                 android:layout_width="wrap_content"

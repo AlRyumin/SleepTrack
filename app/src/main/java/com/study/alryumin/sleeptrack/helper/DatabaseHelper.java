@@ -6,15 +6,18 @@ import androidx.room.TypeConverters;
 
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 import com.study.alryumin.sleeptrack.model.SleepTime;
+import com.study.alryumin.sleeptrack.model.Target;
 import com.study.alryumin.sleeptrack.repository.db.DateConverter;
 import com.study.alryumin.sleeptrack.repository.room.ActivityTrackDao;
 import com.study.alryumin.sleeptrack.repository.room.SleepTimeDao;
+import com.study.alryumin.sleeptrack.repository.room.TargetDao;
 
-@Database(entities = { ActivityTrack.class, SleepTime.class }, version = 2, exportSchema = false)
+@Database(entities = { ActivityTrack.class, SleepTime.class, Target.class }, version = 3, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class DatabaseHelper extends RoomDatabase {
 
     public abstract ActivityTrackDao getActivityTrackDao();
     public abstract SleepTimeDao getSleepTimeDao();
+    public abstract TargetDao getTargetDao();
 
 }

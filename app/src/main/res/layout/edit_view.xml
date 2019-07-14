@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.sleep_time.view.EditView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/buttonBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:background="@color/colorBackground"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                style="@style/TextNotice"
+                android:text="@string/nav_sleep_time" />
+        </RelativeLayout>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/text_margin"
+            android:paddingEnd="@dimen/text_margin">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryAccent"
+                android:background="@color/colorPrimary"
+                android:padding="@dimen/text_padding"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="@string/target_title"/>
+
+            <TextView
+                android:id="@+id/actualSleepTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryAccent"
+                android:background="@color/colorSuccessBackground"
+                android:padding="@dimen/text_padding"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="@string/nav_sleep_time"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:paddingHorizontal="@dimen/text_padding">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_padding"
+                android:layout_weight=".50"
+                android:text="@string/start_at"
+                android:theme="@style/TextNotice" />
+
+            <EditText
+                android:id="@+id/startAt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:focusable="false"
+                android:textColor="@color/colorPrimary"
+                android:theme="@style/EditTextPrimary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/text_padding">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_padding"
+                android:layout_weight=".50"
+                android:text="@string/finish_at"
+                android:theme="@style/TextNotice" />
+
+            <EditText
+                android:id="@+id/finishAt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:focusable="false"
+                android:textColor="@color/colorPrimary"
+                android:theme="@style/EditTextPrimary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/text_padding">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_padding"
+                android:layout_weight=".50"
+                android:text="@string/nav_sleep_time"
+                android:theme="@style/TextNotice" />
+
+            <EditText
+                android:id="@+id/sleepTimeEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:focusable="false"
+                android:textColor="@color/colorPrimary"
+                android:theme="@style/EditTextPrimary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:paddingHorizontal="@dimen/text_padding">
+
+            <Button
+                android:id="@+id/buttonReset"
+                android:background="@drawable/button_secondary"
+                android:textColor="@drawable/button_secondary_text_color"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:text="@string/button_reset" />
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:background="@drawable/main_button"
+                android:textColor="@drawable/main_button_text_color"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:layout_marginStart="@dimen/text_margin"
+                android:text="@string/button_save" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

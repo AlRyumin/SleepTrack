@@ -42,6 +42,12 @@ public class SleepTime {
         this.sleepTime = sleepTime;
     }
 
+    public void copy(SleepTime sleepTime){
+        sleepTime.setStartAt(this.getStartAt());
+        sleepTime.setFinishAt(this.getFinishAt());
+        sleepTime.setSleepTime(this.getSleepTime());
+    }
+
     public String toString(){
         return "Start: " + getStartAt() + " '\n Finish: " + getFinishAt() + " '\n Sleep: " + getSleepTime();
     }

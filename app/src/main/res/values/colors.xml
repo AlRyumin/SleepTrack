@@ -11,4 +11,7 @@
     <color name="colorStartText">#FFFFFF</color>
     <color name="colorEndText">#12173b</color>
     <color name="colorBackground">#FFFFFF</color>
+    <color name="colorSuccessBackground">#4CA130</color>
+    <color name="colorNoticeBackground">#a1a130</color>
+    <color name="colorErrorBackground">#B71C1C</color>
 </resources>

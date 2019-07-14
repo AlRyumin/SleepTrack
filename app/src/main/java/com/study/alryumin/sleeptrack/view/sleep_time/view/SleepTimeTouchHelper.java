@@ -1,6 +1,7 @@
 package com.study.alryumin.sleeptrack.view.sleep_time.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.study.alryumin.sleeptrack.Constants;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.model.SleepTime;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.adapter.SleepTimeRecyclerViewAdapter;
@@ -73,7 +75,7 @@ public class SleepTimeTouchHelper extends ItemTouchHelper.Callback {
         }
 
         if(direction == ItemTouchHelper.RIGHT){
-            editItem(item);
+            editItem(position, item);
         }
 
     }
@@ -148,7 +150,7 @@ public class SleepTimeTouchHelper extends ItemTouchHelper.Callback {
             @Override
             public void onClick(View view) {
 
-                adapter.restoreItem(item, position);
+                adapter.restoreItem(position, item);
                 recyclerView.scrollToPosition(position);
             }
         });
@@ -157,8 +159,11 @@ public class SleepTimeTouchHelper extends ItemTouchHelper.Callback {
         snackbar.show();
     }
 
-    private void editItem(SleepTime item){
-
+    private void editItem(int position, SleepTime item){
+        Intent intent = new Intent(context, EditView.class);
+        intent.putExtra(Constants.SLEEP_TIME_ID, item.getId());
+        context.startActivity(intent);
+//        adapter.changeItem(position, item, context);
     }
 
     private void clearCanvas(Canvas c, Float left, Float top, Float right, Float bottom) {

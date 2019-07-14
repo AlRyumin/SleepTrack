@@ -4,8 +4,7 @@
     package="com.study.alryumin.sleeptrack">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
         android:name=".view.App"
@@ -16,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".view.sleep_time.view.EditView"
+            android:label="@string/title_activity_edit_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <receiver
             android:name=".utils.ScreenTrackReceiver"

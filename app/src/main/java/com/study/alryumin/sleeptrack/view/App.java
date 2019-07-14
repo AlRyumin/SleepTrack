@@ -23,6 +23,7 @@ public class App extends Application {
         db = Room.databaseBuilder(getApplicationContext(), DatabaseHelper.class, "activityTrack")
                 .allowMainThreadQueries()
                 .addMigrations(DatabaseMigration.MIGRATION_1_2)
+                .addMigrations(DatabaseMigration.MIGRATION_2_3)
                 .build();
     }
 

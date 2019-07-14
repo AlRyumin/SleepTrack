@@ -123,18 +123,19 @@ public class SleepTimeChartView extends Fragment {
 
         chart.invalidate();
     }
+
+    class LabelValueFormatter extends ValueFormatter {
+        private List<String> labels;
+
+        public LabelValueFormatter(List<String> labels) {
+            this.labels = labels;
+        }
+
+        @Override
+        public String getFormattedValue(float value) {
+            return labels.get((int) value);
+        }
+    }
 }
 
-class LabelValueFormatter extends ValueFormatter {
-    private List<String> labels;
-
-    public LabelValueFormatter(List<String> labels){
-        this.labels = labels;
-    }
-
-    @Override
-    public String getFormattedValue(float value) {
-        return labels.get((int) value);
-    }
-}
 

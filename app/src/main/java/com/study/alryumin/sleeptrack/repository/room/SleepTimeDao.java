@@ -19,7 +19,7 @@ public interface SleepTimeDao {
     SleepTime getLast();
 
     @Query("SELECT * FROM sleepTime WHERE id = :id")
-    SleepTime getById(int id);
+    SleepTime getById(long id);
 
     @Query("SELECT * FROM sleepTime WHERE startAt >= :startAt AND finishAt <= :finishAt")
     List<SleepTime> getByDate(Long startAt, Long finishAt);
