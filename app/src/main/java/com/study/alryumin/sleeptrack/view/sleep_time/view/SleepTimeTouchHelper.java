@@ -160,7 +160,7 @@ public class SleepTimeTouchHelper extends ItemTouchHelper.Callback {
     }
 
     private void editItem(int position, SleepTime item){
-        Intent intent = new Intent(context, EditView.class);
+        Intent intent = new Intent(context, SleepTimeEditView.class);
         intent.putExtra(Constants.SLEEP_TIME_ID, item.getId());
         context.startActivity(intent);
 //        adapter.changeItem(position, item, context);

@@ -1,10 +1,8 @@
 package com.study.alryumin.sleeptrack.view.sleep_time.view;
 
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +40,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class EditView extends AppCompatActivity {
+public class SleepTimeEditView extends AppCompatActivity {
     private Target target;
     private SleepTime sleepTime;
     private EditSleepTimeContract.Presenter presenter;
@@ -69,7 +67,7 @@ public class EditView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_view);
+        setContentView(R.layout.sleep_time_edit_view);
 
         ButterKnife.bind(this);
 
@@ -218,7 +216,7 @@ public class EditView extends AppCompatActivity {
         pieDataSet.setColors(colors);
         pieDataSet.setValueTextColor(ContextCompat.getColor(this, R.color.colorPrimaryAccent));
 
-        pieDataSet.setValueFormatter(new EditView.LabelValueFormatter());
+        pieDataSet.setValueFormatter(new SleepTimeEditView.LabelValueFormatter());
 
         chart.getLegend().setEnabled(false);
         Description description = new Description();

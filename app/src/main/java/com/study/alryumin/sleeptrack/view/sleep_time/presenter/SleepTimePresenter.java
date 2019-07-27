@@ -41,6 +41,8 @@ public class SleepTimePresenter implements SleepTimeContract.Presenter {
 //        }
 
 
-        return sleepTimeDao.getAll();
+        List<SleepTime> items = sleepTimeDao.getAllByDate();
+
+        return items;
     }
 }

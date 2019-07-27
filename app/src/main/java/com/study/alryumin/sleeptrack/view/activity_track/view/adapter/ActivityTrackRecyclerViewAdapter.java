@@ -44,8 +44,8 @@ public class ActivityTrackRecyclerViewAdapter extends RecyclerView.Adapter<Activ
         holder.item = activityTrack;
 
         holder.activityTime.setText(DateFormatHelper.getTimeFormat(activityTrack.getActivityTime(), true));
-        holder.activityStart.setText(DateFormatHelper.getDateFormat(activityTrack.getStartAt()));
-        holder.activityFinish.setText(DateFormatHelper.getDateFormat(activityTrack.getFinishAt()));
+        holder.activityStart.setText(DateFormatHelper.getTimeDateFormat(activityTrack.getStartAt()));
+        holder.activityFinish.setText(DateFormatHelper.getTimeDateFormat(activityTrack.getFinishAt()));
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override

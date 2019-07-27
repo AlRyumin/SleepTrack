@@ -47,6 +47,7 @@
     <string name="error_offline">You are offline.</string>
     <string name="error_sign_in">E-mail or password is wrong</string>
     <string name="error_sign_up">E-mail or password is wrong</string>
+    <string name="error_sleep_time_duaration">Sleep time can\'t be less or equals to 0</string>
 
     <string name="authentication_failed">Authentication failed</string>
 
@@ -56,13 +57,15 @@
     <string name="nav_target">Targets</string>
     <string name="manage_sleep">Manage Your Sleep</string>
 
+    <string name="add_sleep_time_title">Sleep Time</string>
+
     <string name="settings_min_time_title">Min Sleep Time</string>
 
     <string name="target_title">Target</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_edit_view">EditView</string>
+    <string name="title_activity_edit_view">SleepTimeEditView</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>

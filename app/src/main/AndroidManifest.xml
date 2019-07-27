@@ -15,10 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".view.sleep_time.view.SleepTimeAddView"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".view.sleep_time.view.EditView"
-            android:label="@string/title_activity_edit_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".view.sleep_time.view.SleepTimeEditView"
+            android:label="@string/title_activity_edit_view" />
 
         <receiver
             android:name=".utils.ScreenTrackReceiver"

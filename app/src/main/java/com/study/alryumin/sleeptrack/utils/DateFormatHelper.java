@@ -8,6 +8,11 @@ import java.util.concurrent.TimeUnit;
 
 public class DateFormatHelper {
     public static String getDateFormat(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
+        return dateFormat.format(date);
+    }
+
+    public static String getTimeDateFormat(Date date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss - yyyy.MM.dd");
         return dateFormat.format(date);
     }

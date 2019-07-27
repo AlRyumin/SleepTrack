@@ -1,11 +1,14 @@
 package com.study.alryumin.sleeptrack.view.sleep_time.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
@@ -13,6 +16,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.study.alryumin.sleeptrack.Constants;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.model.SleepTime;
 import com.study.alryumin.sleeptrack.view.sleep_time.presenter.SleepTimePresenter;
@@ -21,7 +26,9 @@ import com.study.alryumin.sleeptrack.view.sleep_time.view.adapter.SleepTimeRecyc
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class SleepTimeListView extends Fragment {
@@ -29,6 +36,9 @@ public class SleepTimeListView extends Fragment {
     private SleepTimeRecyclerViewAdapter adapter;
     private OnListFragmentInteractionListener listener;
     final String TAG = "SleepTimeListView";
+
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
 
 //    @BindView(R.id.coordinatorLayout)
     CoordinatorLayout coordinatorLayout;
@@ -46,7 +56,6 @@ public class SleepTimeListView extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView");
 
         View rootView = inflater.inflate(R.layout.sleep_time_viewholder, container, false);
         View list = rootView.findViewById(R.id.list);
@@ -79,11 +88,18 @@ public class SleepTimeListView extends Fragment {
         return rootView;
     }
 
+    @OnClick({R.id.fab})
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.fab:
+                addSleepTime();
+                break;
+        }
+    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d(TAG, "onDestroyView");
     }
 //    @Override
 //    public void onAttach(Context context) {
@@ -125,4 +141,9 @@ public class SleepTimeListView extends Fragment {
 //    void onItemSelected(int position) {
 //        Log.d("SPINNERPOS", Integer.toString(position));
 //    }
+
+    private void addSleepTime(){
+        Intent intent = new Intent(getContext(), SleepTimeAddView.class);
+        startActivity(intent);
+    }
 }

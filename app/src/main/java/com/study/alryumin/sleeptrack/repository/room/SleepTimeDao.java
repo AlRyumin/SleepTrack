@@ -15,6 +15,9 @@ public interface SleepTimeDao {
     @Query("SELECT * FROM sleepTime")
     List<SleepTime> getAll();
 
+    @Query("SELECT * FROM sleepTime ORDER BY finishAt")
+    List<SleepTime> getAllByDate();
+
     @Query("SELECT * FROM sleepTime WHERE id = (SELECT MAX(id)  FROM sleepTime)")
     SleepTime getLast();
 

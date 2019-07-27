@@ -27,6 +27,9 @@ public class SleepTime {
     }
 
     public long getSleepTime() {
+        if(sleepTime == 0l){
+            sleepTime = getFinishAt().getTime() - getStartAt().getTime();
+        }
         return sleepTime;
     }
 

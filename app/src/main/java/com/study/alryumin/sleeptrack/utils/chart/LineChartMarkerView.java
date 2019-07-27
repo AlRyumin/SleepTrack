@@ -62,8 +62,8 @@ public class LineChartMarkerView extends MarkerView {
         if(null != items) {
             SleepTime sleepTime = items.get((int) value);
 
-            fallAsleep.setText(DateFormatHelper.getDateFormat(sleepTime.getStartAt()));
-            wakeUp.setText(DateFormatHelper.getDateFormat(sleepTime.getFinishAt()));
+            fallAsleep.setText(DateFormatHelper.getTimeDateFormat(sleepTime.getStartAt()));
+            wakeUp.setText(DateFormatHelper.getTimeDateFormat(sleepTime.getFinishAt()));
             sleepTimeView.setText(DateFormatHelper.getTimeFormat(sleepTime.getSleepTime()));
 
             super.refreshContent(e, highlight);
