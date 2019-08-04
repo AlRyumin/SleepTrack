@@ -35,7 +35,7 @@ public class SleepTimeRecyclerViewAdapter extends RecyclerView.Adapter<SleepTime
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.sleep_time_list_view, parent, false);
+                .inflate(R.layout.sleep_time_list_viewholder, parent, false);
 
         database = App.getInstance().getDatabase();
         sleepTimeDao = database.getSleepTimeDao();

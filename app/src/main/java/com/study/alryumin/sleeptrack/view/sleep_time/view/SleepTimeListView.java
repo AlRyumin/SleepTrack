@@ -3,12 +3,9 @@ package com.study.alryumin.sleeptrack.view.sleep_time.view;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
@@ -17,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.study.alryumin.sleeptrack.Constants;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.model.SleepTime;
 import com.study.alryumin.sleeptrack.view.sleep_time.presenter.SleepTimePresenter;
@@ -57,7 +53,7 @@ public class SleepTimeListView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.sleep_time_viewholder, container, false);
+        View rootView = inflater.inflate(R.layout.sleep_time_list, container, false);
         View list = rootView.findViewById(R.id.list);
         coordinatorLayout = rootView.findViewById(R.id.coordinatorLayout);
 
