@@ -4,17 +4,25 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.study.alryumin.sleeptrack.helper.DatabaseHelper;
 import com.study.alryumin.sleeptrack.helper.SettingsHelper;
 import com.study.alryumin.sleeptrack.model.AppSettings;
+import com.study.alryumin.sleeptrack.repository.room.AppSettingsDao;
+import com.study.alryumin.sleeptrack.view.App;
 import com.study.alryumin.sleeptrack.view.settings.contract.SettingsContract;
 
 public class SettingsPresenter implements SettingsContract.Presenter {
     private static SettingsPresenter instance;
-    private static AppSettings appSettings;
-    private static final Long defaultMinSleepTime = 14400l * 1000;
+    private AppSettings appSettings;
+    private final Long defaultMinSleepTime = 14400l * 1000;
+
+    DatabaseHelper database;
+    AppSettingsDao appSettingsDao;
 
     private SettingsPresenter(){
-        appSettings = new AppSettings();
+        database = App.getInstance().getDatabase();
+        appSettingsDao = database.getAppSettingsDao();
+        appSettings = appSettingsDao.getLast();
     }
 
     public static SettingsPresenter getInstance(){
@@ -44,16 +52,6 @@ public class SettingsPresenter implements SettingsContract.Presenter {
         return appSettings;
     }
 
-    public void setAppSettings(AppSettings appSettings){
-        if(null == appSettings || null == appSettings.getMinSleepTime()){
-            this.appSettings.setMinSleepTime(defaultMinSleepTime);
-        } else {
-            this.appSettings.setMinSleepTime(appSettings.getMinSleepTime());
-        }
-    }
-
-
-
     @Override
     public void setMinSleepTime(int hour, int minute) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -62,7 +60,9 @@ public class SettingsPresenter implements SettingsContract.Presenter {
 
         long minSleepTime = SettingsHelper.timeToMilliseconds(hour, minute);
 
-        appSettings = new AppSettings(minSleepTime);
+        appSettings.setMinSleepTime(minSleepTime);
+
+        appSettingsDao.update(appSettings);
 
         reference.child(user.getUid()).setValue(appSettings);
     }

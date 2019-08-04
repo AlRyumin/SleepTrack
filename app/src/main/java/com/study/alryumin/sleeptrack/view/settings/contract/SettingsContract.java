@@ -8,10 +8,9 @@ public interface SettingsContract {
     }
 
     interface Presenter{
-        public void setMinSleepTime(int hour, int minute);
-        public String getMinSleepTime();
-        public AppSettings getAppSettings();
-        public void setAppSettings(AppSettings settings);
-        public Long getMinSleepTime(boolean isMilliseconds);
+        void setMinSleepTime(int hour, int minute);
+        String getMinSleepTime();
+        AppSettings getAppSettings();
+        Long getMinSleepTime(boolean isMilliseconds);
     }
 }

@@ -4,10 +4,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.sql.Time;
-import java.util.Date;
 
 @Entity
-public class Target implements Cloneable{
+public class Target{
     @PrimaryKey(autoGenerate = true)
     public long id;
     private Time startAt, finishAt;

@@ -66,10 +66,7 @@ public class SettingsView extends Fragment implements SettingsContract.View {
 
     private void initView(View view){
         presenter = SettingsPresenter.getInstance();
-        progressDialog = new ProgressDialog(getContext(), R.style.ProgressDialog);
-        progressDialog.show();
-
-        syncSleepTime();
+        sleepTimePick.setText(presenter.getMinSleepTime());
     }
 
     public void pickSleepTime(){
@@ -81,7 +78,6 @@ public class SettingsView extends Fragment implements SettingsContract.View {
             @Override
             public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
                 presenter.setMinSleepTime(hourOfDay, minutes);
-                Log.d("minSle", presenter.getMinSleepTime());
                 sleepTimePick.setText(presenter.getMinSleepTime());
             }
         }, currentHour, currentMinute, false);
@@ -96,27 +92,5 @@ public class SettingsView extends Fragment implements SettingsContract.View {
         if(amPmLayout != null) {
             amPmLayout.setVisibility(View.GONE);
         }
-    }
-
-    public void syncSleepTime() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("settings");
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        reference.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                AppSettings settings = dataSnapshot.getValue(AppSettings.class);
-                presenter.setAppSettings(settings);
-                sleepTimePick.setText(presenter.getMinSleepTime());
-                progressDialog.dismiss();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d("appSettings Error: ", databaseError.getMessage());
-                progressDialog.dismiss();
-            }
-        });
     }
 }

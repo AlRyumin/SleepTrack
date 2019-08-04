@@ -21,4 +21,12 @@ public class DatabaseMigration {
                     "`finishAt` INTEGER, `sleepTime` INTEGER NOT NULL)");
         }
     };
+
+    public static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `AppSettings` " +
+                    "(`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `minSleepTime` INTEGER NOT NULL)");
+        }
+    };
 }

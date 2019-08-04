@@ -24,6 +24,7 @@ public class App extends Application {
                 .allowMainThreadQueries()
                 .addMigrations(DatabaseMigration.MIGRATION_1_2)
                 .addMigrations(DatabaseMigration.MIGRATION_2_3)
+                .addMigrations(DatabaseMigration.MIGRATION_3_4)
                 .build();
     }
 
