@@ -80,6 +80,12 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 AppSettings settings = dataSnapshot.getValue(AppSettings.class);
+                if(null == settings){
+                    checkSettings();
+                    settings = appSettings;
+                    reference.child(user.getUid()).setValue(appSettings);
+                }
+
                 saveSettings(settings);
                 startNewActivity(cls);
             }
