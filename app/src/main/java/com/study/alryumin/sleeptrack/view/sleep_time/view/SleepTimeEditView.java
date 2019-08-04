@@ -62,7 +62,7 @@ public class SleepTimeEditView extends AppCompatActivity {
     @BindView(R.id.buttonReset)
     Button buttonReset;
     @BindView(R.id.buttonSave)
-    Button buttonSave;
+    ImageButton buttonSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

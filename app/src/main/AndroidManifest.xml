@@ -19,7 +19,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".view.sleep_time.view.SleepTimeEditView"
-            android:label="@string/title_activity_edit_view" />
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <receiver
             android:name=".utils.ScreenTrackReceiver"

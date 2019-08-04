@@ -6,11 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.sleep_time.view.SleepTimeEditView">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetEnd="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,16 +35,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/fab_margin"
-                android:background="@color/colorBackground"
+                android:background="@color/colorPrimary"
+                android:layout_alignParentLeft="true"
                 android:src="@drawable/ic_back" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                style="@style/TextNotice"
+                android:textColor="@color/colorPrimaryAccent"
                 android:text="@string/nav_sleep_time" />
+
+            <ImageButton
+                android:id="@+id/buttonSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:background="@color/colorPrimary"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_done"/>
         </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/text_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/chart"
@@ -44,26 +82,27 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/text_margin"
             android:paddingEnd="@dimen/text_margin">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryAccent"
-                android:background="@color/colorPrimary"
-                android:padding="@dimen/text_padding"
-                android:gravity="center"
                 android:layout_weight="1"
-                android:text="@string/target_title"/>
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:padding="@dimen/text_padding"
+                android:text="@string/target_title"
+                android:textColor="@color/colorPrimaryAccent" />
 
             <TextView
                 android:id="@+id/actualSleepTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryAccent"
-                android:background="@color/colorSuccessBackground"
-                android:padding="@dimen/text_padding"
-                android:gravity="center"
                 android:layout_weight="1"
-                android:text="@string/nav_sleep_time"/>
+                android:background="@color/colorSuccessBackground"
+                android:gravity="center"
+                android:padding="@dimen/text_padding"
+                android:text="@string/nav_sleep_time"
+                android:textColor="@color/colorPrimaryAccent" />
         </LinearLayout>
 
         <LinearLayout
@@ -139,31 +178,19 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center|bottom"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:gravity="center|bottom"
             android:paddingHorizontal="@dimen/text_padding">
 
             <Button
                 android:id="@+id/buttonReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@drawable/button_secondary"
-                android:textColor="@drawable/button_secondary_text_color"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".50"
-                android:layout_marginEnd="@dimen/text_margin"
-                android:text="@string/button_reset" />
-
-            <Button
-                android:id="@+id/buttonSave"
-                android:background="@drawable/main_button"
-                android:textColor="@drawable/main_button_text_color"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".50"
-                android:layout_marginStart="@dimen/text_margin"
-                android:text="@string/button_save" />
+                android:text="@string/button_reset"
+                android:textColor="@drawable/button_secondary_text_color" />
         </LinearLayout>
     </LinearLayout>
 

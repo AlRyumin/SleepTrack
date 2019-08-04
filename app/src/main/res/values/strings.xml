@@ -54,6 +54,7 @@
     <string name="nav_sign_out">Sign Out</string>
     <string name="nav_activity_track">Activities</string>
     <string name="nav_sleep_time">Sleep Time</string>
+    <string name="nav_edit_sleep_time">Edit Sleep Time</string>
     <string name="nav_target">Targets</string>
     <string name="manage_sleep">Manage Your Sleep</string>
 
