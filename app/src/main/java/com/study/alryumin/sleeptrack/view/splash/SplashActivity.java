@@ -99,7 +99,9 @@ public class SplashActivity extends AppCompatActivity {
 
     private void saveSettings(AppSettings settings){
         if(null == appSettings){
-            appSettingsDao.add(settings);
+            appSettings = new AppSettings();
+            appSettings.setMinSleepTime(settings.getMinSleepTime());
+            appSettingsDao.add(appSettings);
         } else {
             appSettings.setMinSleepTime(settings.getMinSleepTime());
             appSettingsDao.update(appSettings);

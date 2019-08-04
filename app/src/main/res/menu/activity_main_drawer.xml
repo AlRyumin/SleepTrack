@@ -6,15 +6,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_sleep_time"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_sleep_time"
             android:title="@string/nav_sleep_time" />
         <item
             android:id="@+id/nav_activity"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_activity"
             android:title="@string/nav_activity_track" />
         <item
             android:id="@+id/nav_target"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_target"
             android:title="@string/nav_target" />
         <!--<item-->
             <!--android:id="@+id/nav_manage"-->
