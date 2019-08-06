@@ -46,7 +46,6 @@ import butterknife.ButterKnife;
 
 public class SleepTimeChartView extends Fragment {
     private SleepTimePresenter sleepTimePresenter;
-    private final RectF mOnValueSelectedRectF = new RectF();
 
     @BindView(R.id.chart_content)
     LineChart chart;
@@ -118,6 +117,8 @@ public class SleepTimeChartView extends Fragment {
 
         YAxis leftAxis = chart.getAxisLeft();
 
+        leftAxis.setValueFormatter(new leftAxisLabelValueFormatter());
+
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setEnabled(false);
 
@@ -135,6 +136,37 @@ public class SleepTimeChartView extends Fragment {
         public String getFormattedValue(float value) {
             return labels.get((int) value);
         }
+    }
+
+    class leftAxisLabelValueFormatter extends ValueFormatter {
+        private List<String> labels;
+
+        public leftAxisLabelValueFormatter() {
+            this.labels = labels;
+        }
+
+        @Override
+        public String getFormattedValue(float value) {
+            int hour = (int) value;
+            int minDecimal = (int)(value * 100) - hour * 100;
+
+            int minute = 60 * minDecimal / 100;
+
+            Log.d("sdf", Float.toString(value));
+            Log.d("sdfHour", Integer.toString(hour));
+            Log.d("sdfMinute", Integer.toString(minute));
+            return intTimeFormat(hour) + ":" + intTimeFormat(minute);
+        }
+    }
+
+    private String intTimeFormat(int time){
+        if(time <= 0){
+            return "00";
+        } else if(time < 10){
+            return "0" + time;
+        }
+
+        return "" + time;
     }
 }
 

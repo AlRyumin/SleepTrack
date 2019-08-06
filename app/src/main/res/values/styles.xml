@@ -6,6 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:ambientShadowAlpha">@null</item>
+        <item name="android:spotShadowAlpha">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:elevation">@null</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -89,7 +93,7 @@
     <style name="PagerTabStripText">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimaryAccent</item>
         <item name="android:layout_margin">10dp</item>
         <item name="android:padding">10dp</item>
     </style>

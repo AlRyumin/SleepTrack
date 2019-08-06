@@ -13,7 +13,7 @@ public class DateFormatHelper {
     }
 
     public static String getTimeDateFormat(Date date) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss - yyyy.MM.dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm - yyyy.MM.dd");
         return dateFormat.format(date);
     }
 

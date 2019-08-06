@@ -1,16 +1,7 @@
 package com.study.alryumin.sleeptrack.utils.info;
 
-import android.util.Log;
-
 import androidx.annotation.Nullable;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.study.alryumin.sleeptrack.helper.DatabaseHelper;
 import com.study.alryumin.sleeptrack.model.ActivityTrack;
 import com.study.alryumin.sleeptrack.model.AppSettings;
@@ -18,13 +9,9 @@ import com.study.alryumin.sleeptrack.model.SleepTime;
 import com.study.alryumin.sleeptrack.repository.room.ActivityTrackDao;
 import com.study.alryumin.sleeptrack.repository.room.AppSettingsDao;
 import com.study.alryumin.sleeptrack.repository.room.SleepTimeDao;
-import com.study.alryumin.sleeptrack.utils.TrackActivity;
 import com.study.alryumin.sleeptrack.view.App;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class CountSleepTime {
