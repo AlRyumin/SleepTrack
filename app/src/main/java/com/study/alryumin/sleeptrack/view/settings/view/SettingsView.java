@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.helper.SettingsHelper;
 import com.study.alryumin.sleeptrack.model.AppSettings;
+import com.study.alryumin.sleeptrack.view.main.MainActivity;
 import com.study.alryumin.sleeptrack.view.settings.contract.SettingsContract;
 import com.study.alryumin.sleeptrack.view.settings.presenter.SettingsPresenter;
 
@@ -53,6 +54,15 @@ public class SettingsView extends Fragment implements SettingsContract.View {
         initView(rootView);
 
         return rootView;
+    }
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        MainActivity activity = (MainActivity) getActivity();
+
+        activity.getSupportActionBar().setTitle(R.string.title_settings);
     }
 
     @OnClick({R.id.sleepTimePick})

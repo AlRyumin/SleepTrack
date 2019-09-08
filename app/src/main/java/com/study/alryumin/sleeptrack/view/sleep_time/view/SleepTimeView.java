@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.utils.LockableViewPager;
+import com.study.alryumin.sleeptrack.view.main.MainActivity;
 import com.study.alryumin.sleeptrack.view.sleep_time.view.adapter.SleepTimePagerAdapter;
 
 import butterknife.BindView;
@@ -31,6 +32,14 @@ public class SleepTimeView extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        MainActivity activity = (MainActivity) getActivity();
+
+        activity.getSupportActionBar().setTitle(R.string.title_sleep_time);
     }
 
     @Override

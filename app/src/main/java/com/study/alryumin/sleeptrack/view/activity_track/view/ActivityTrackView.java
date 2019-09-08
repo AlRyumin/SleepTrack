@@ -20,6 +20,7 @@ import com.study.alryumin.sleeptrack.model.ActivityTrack;
 import com.study.alryumin.sleeptrack.view.activity_track.contract.ActivityTrackContract;
 import com.study.alryumin.sleeptrack.view.activity_track.presenter.ActivityTrackPresenter;
 import com.study.alryumin.sleeptrack.view.activity_track.view.adapter.ActivityTrackRecyclerViewAdapter;
+import com.study.alryumin.sleeptrack.view.main.MainActivity;
 
 import java.util.Calendar;
 import java.util.Collections;
@@ -108,6 +109,14 @@ public class ActivityTrackView extends Fragment implements ActivityTrackContract
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        MainActivity activity = (MainActivity) getActivity();
+
+        activity.getSupportActionBar().setTitle(R.string.title_activities);
     }
 
     /**

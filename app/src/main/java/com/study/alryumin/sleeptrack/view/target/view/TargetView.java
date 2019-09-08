@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.utils.DateFormatHelper;
+import com.study.alryumin.sleeptrack.view.main.MainActivity;
 import com.study.alryumin.sleeptrack.view.target.contract.TargetContract;
 import com.study.alryumin.sleeptrack.view.target.presenter.TargetPresenter;
 
@@ -54,6 +55,14 @@ public class TargetView extends Fragment implements TargetContract.View {
         initView();
 
         return rootView;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        MainActivity activity = (MainActivity) getActivity();
+
+        activity.getSupportActionBar().setTitle(R.string.title_targets);
     }
 
     @OnClick({R.id.startAt, R.id.finishAt, R.id.sleepTime, R.id.buttonReset, R.id.buttonSave})
