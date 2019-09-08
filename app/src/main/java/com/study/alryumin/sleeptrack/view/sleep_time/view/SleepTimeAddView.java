@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.study.alryumin.sleeptrack.Constants;
 import com.study.alryumin.sleeptrack.R;
 import com.study.alryumin.sleeptrack.helper.DatabaseHelper;
+import com.study.alryumin.sleeptrack.helper.TargetHelper;
 import com.study.alryumin.sleeptrack.model.SleepTime;
 import com.study.alryumin.sleeptrack.model.Target;
 import com.study.alryumin.sleeptrack.repository.room.SleepTimeDao;
@@ -169,7 +170,8 @@ public class SleepTimeAddView extends AppCompatActivity {
         presenter = AddSleepTimePresenter.getInstance();
         sleepTime = new SleepTime();
         presenter.setSleepTime(sleepTime);
-        target = targetDao.getLast();
+//        target = targetDao.getLast();
+        target = TargetHelper.getInstance().getTarget();
         initTimeDate();
     }
 

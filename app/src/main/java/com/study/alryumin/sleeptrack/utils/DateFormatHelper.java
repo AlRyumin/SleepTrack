@@ -81,9 +81,7 @@ public class DateFormatHelper {
         try {
             Log.d("getM", time);
             String[] times = time.split(":");
-            for(String t : times){
-                Log.d("timesdf:", t);
-            }
+
             int minute = Integer.parseInt(times[1].trim());
             return minute;
         } catch (Exception e) {

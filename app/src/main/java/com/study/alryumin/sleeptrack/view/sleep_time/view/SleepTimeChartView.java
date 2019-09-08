@@ -134,7 +134,8 @@ public class SleepTimeChartView extends Fragment {
 
         @Override
         public String getFormattedValue(float value) {
-            return labels.get((int) value);
+            int intVal = (int) value;
+            return labels.get(intVal);
         }
     }
 
@@ -152,9 +153,6 @@ public class SleepTimeChartView extends Fragment {
 
             int minute = 60 * minDecimal / 100;
 
-            Log.d("sdf", Float.toString(value));
-            Log.d("sdfHour", Integer.toString(hour));
-            Log.d("sdfMinute", Integer.toString(minute));
             return intTimeFormat(hour) + ":" + intTimeFormat(minute);
         }
     }
